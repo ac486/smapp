@@ -56,7 +56,10 @@
                     </li>
 
                       <li>
-                        <a href="/v iewCustomers.php"><i class="fa fa-table"></i> <span class="nav-label">View Customers</span></a>
+                        <a href="/viewCustomers.php"><i class="fa fa-table"></i> <span class="nav-label">View Customers</span></a>
+                      </li>
+                      <li>
+                        <a href="/addCustomers.php"><i class="fa fa-table"></i> <span class="nav-label">Add Customers</span></a>
                       </li>
 
                 </ul>
