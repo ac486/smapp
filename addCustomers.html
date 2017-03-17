@@ -35,6 +35,8 @@ session_start();
     <?php
     include "config/config.php";
 ?>
+
+
 </head>
 
 <body>
@@ -417,8 +419,17 @@ session_start();
                     </div>
 
           </div>
-
           
+<!--edit this so that all forms will be able to upload-->
+          <script type="text/javascript">
+          submitForms = function(){
+              document.getElementById("form1").submit();
+              document.getElementById("form2").submit();
+          }
+          </script>
+          <div class="submitbutton"> <!--javascript above links all forms here to one submit button-->
+            <input type="button" class="btn btn-primary" value="Submit!" onclick="submitForms()" />
+          </div>
 
 
     <!-- Mainly scripts -->
