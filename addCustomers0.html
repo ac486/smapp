@@ -1,0 +1,482 @@
+<!--
+*
+
+*
+-->
+<?php
+
+session_start();
+
+// if(!isset($_SESSION['user'])){
+//   exit();
+// }
+?>
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>Sunmint | Create Account</title>
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="font-awesome/css/font-awesome.css" rel="stylesheet">
+
+    <!-- Toastr style -->
+    <link href="css/plugins/toastr/toastr.min.css" rel="stylesheet">
+
+    <!-- Gritter -->
+    <link href="js/plugins/gritter/jquery.gritter.css" rel="stylesheet">
+
+    <link href="css/animate.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <?php
+    include "config/config.php";
+?>
+
+
+</head>
+
+<body>
+      <div id="wrapper">
+        <?PHP include "./components/nav_bar.php" ?>
+<!--
+        <div id="page-wrapper" class="gray-bg dashbard-1">
+        <div class="row border-bottom">
+        <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
+        <div class="navbar-header">
+            <a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i> </a>
+        </div>
+
+
+
+            <ul class="nav navbar-top-links navbar-right">
+
+                <li>
+                    <a href="home.php">
+                        <i class="fa fa-sign-out"></i> Logout
+                    </a>
+                </li>
+
+            </ul>
+
+        </nav>
+        </div>
+-->
+
+<!-- Side nav bar -->
+
+<nav class="navbar-default navbar-static-side" role="navigation">
+    <div class="sidebar-collapse">
+        <ul class="nav metismenu" id="side-menu">
+            <li class="nav-header">
+                <div class="dropdown profile-element"> <span>
+                     </span>
+                    <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                    <span class="clear"> <span class="block m-t-xs"> <strong class="font-bold"> <?php echo $_SESSION['user']['user_name'] ?> </strong>
+                    </span> </span> </a>
+                    <ul class="dropdown-menu animated fadeInRight m-t-xs">
+                        <li><a href="login.html">Profile</a></li>
+                    </ul>
+                </div>
+                <div class="logo-element">
+                    SM
+                </div>
+            </li>
+            <li class="active">
+                <a href="index.html"><i class="fa fa-th-large"></i> <span class="nav-label">Home</span></a>
+            </li>
+
+              <li>
+                <a href="viewCustomers.php"><i class="fa fa-table"></i> <span class="nav-label">View Customers</span></a>
+              </li>
+              <li>
+                <a href="addCustomers.php"><i class="fa fa-table"></i> <span class="nav-label">Add Customers</span></a>
+              </li>
+
+        </ul>
+
+    </div>
+</nav>
+
+<div id="page-wrapper" class="gray-bg dashbard-1">
+
+
+<!-- Top nav bar -->
+<div class="row border-bottom">
+<nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
+<div class="navbar-header">
+    <a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i> </a>
+</div>
+    <ul class="nav navbar-top-links navbar-right">
+        <li>
+            <a href="home.php">
+                <i class="fa fa-sign-out"></i> Logout
+            </a>
+        </li>
+    </ul>
+</nav>
+</div>
+    <!--Start form-->
+    <!--freedom expert info-->
+    <div class="row">
+                <div class="col-lg-8">
+                    <div class="ibox float-e-margins">
+                        <div class="ibox-title">
+                            <h5>Freedom Expert</h5>
+                            <div class="ibox-tools">
+                                <a class="collapse-link">
+                                    <i class="fa fa-chevron-up"></i>
+                                </a>
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                    <i class="fa fa-wrench"></i>
+                                </a>
+                                <ul class="dropdown-menu dropdown-user">
+                                    <li><a href="#">Config option 1</a>
+                                    </li>
+                                    <li><a href="#">Config option 2</a>
+                                    </li>
+                                </ul>
+                                <a class="close-link">
+                                    <i class="fa fa-times"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="ibox-content">
+                            <form role="form" class="form-inline">
+                                <div class="form-group">
+                                    <label for="exampleInputPassword2" class="sr-only">First Name</label>
+                                    <input type="text" placeholder="First Name" id="exampleInputPassword2" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputPassword2" class="sr-only">Last Name</label>
+                                    <input type="text" placeholder="Last Name" id="exampleInputPassword2" class="form-control">
+                                </div>
+
+
+
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+      </div>
+      <!--customer info-->
+    <div class="row">
+                <div class="col-lg-8">
+                    <div class="ibox float-e-margins">
+                        <div class="ibox-title">
+                            <h5>Customer Info</h5>
+                            <div class="ibox-tools">
+                                <a class="collapse-link">
+                                    <i class="fa fa-chevron-up"></i>
+                                </a>
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                    <i class="fa fa-wrench"></i>
+                                </a>
+                                <ul class="dropdown-menu dropdown-user">
+                                    <li><a href="#">Config option 1</a>
+                                    </li>
+                                    <li><a href="#">Config option 2</a>
+                                    </li>
+                                </ul>
+                                <a class="close-link">
+                                    <i class="fa fa-times"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="ibox-content">
+                            <form role="form" class="form-inline">
+                                <div class="form-group">
+                                    <label for="exampleInputPassword2" class="sr-only">First Name</label>
+                                    <input type="text" placeholder="First Name" id="exampleInputPassword2" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputPassword2" class="sr-only">Last Name</label>
+                                    <input type="text" placeholder="Last Name" id="exampleInputPassword2" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputEmail2" class="sr-only">Email address</label>
+                                    <input type="text" placeholder="Enter email" id="exampleInputEmail2" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputPassword2" class="sr-only">Phone #</label>
+                                    <input type="value" placeholder="Phone #" id="exampleInputPassword2" class="form-control">
+                                </div>
+
+
+
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+        </div>
+
+        <!--customer address-->
+        <div class="row">
+                    <div class="col-lg-8">
+                        <div class="ibox float-e-margins">
+                            <div class="ibox-title">
+                                <h5>Address Info</h5>
+                                <div class="ibox-tools">
+                                    <a class="collapse-link">
+                                        <i class="fa fa-chevron-up"></i>
+                                    </a>
+                                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                        <i class="fa fa-wrench"></i>
+                                    </a>
+                                    <ul class="dropdown-menu dropdown-user">
+                                        <li><a href="#">Config option 1</a>
+                                        </li>
+                                        <li><a href="#">Config option 2</a>
+                                        </li>
+                                    </ul>
+                                    <a class="close-link">
+                                        <i class="fa fa-times"></i>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="ibox-content">
+                                <form role="form" class="form-inline">
+                                    <div class="form-group">
+                                        <label for="exampleInputPassword2" class="sr-only">Street Name</label>
+                                        <input type="text" placeholder="Street Name" id="exampleInputPassword2" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="exampleInputPassword2" class="sr-only">City</label>
+                                        <input type="text" placeholder="City" id="exampleInputPassword2" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="exampleInputEmail2" class="sr-only">State</label>
+                                        <input type="text" placeholder="State" id="exampleInputEmail2" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="exampleInputPassword2" class="sr-only">Zip Code</label>
+                                        <input type="value" placeholder="Zip Code" id="exampleInputPassword2" class="form-control">
+                                    </div>
+
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+            </div>
+        <!--usage info-->
+        <div class="row">
+                    <div class="col-lg-8">
+                        <div class="ibox float-e-margins">
+                            <div class="ibox-title">
+                                <h5>Usage and Cost</h5>
+                                <div class="ibox-tools">
+                                    <a class="collapse-link">
+                                        <i class="fa fa-chevron-up"></i>
+                                    </a>
+                                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                        <i class="fa fa-wrench"></i>
+                                    </a>
+                                    <ul class="dropdown-menu dropdown-user">
+                                        <li><a href="#">Config option 1</a>
+                                        </li>
+                                        <li><a href="#">Config option 2</a>
+                                        </li>
+                                    </ul>
+                                    <a class="close-link">
+                                        <i class="fa fa-times"></i>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="ibox-content">
+                                <form role="form" class="form-inline">
+                                    <div class="form-group">
+                                        <label for="exampleInputPassword2" class="sr-only">Current Utility Provider</label>
+                                        <input type="text" placeholder="Current Provider" id="exampleInputPassword2" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="exampleInputPassword2" class="sr-only">Rate/kwh</label>
+                                        <input type="value" placeholder="Rate/kwh" id="exampleInputPassword2" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="exampleInputPassword2" class="sr-only">Annual Estimated Usage</label>
+                                        <input type="value" placeholder="Annual Estimated Usage" id="exampleInputPassword2" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="exampleInputPassword2" class="sr-only">Current Annual Cost</label>
+                                        <input type="value" placeholder="Current Annual Cost" id="exampleInputPassword2" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="exampleInputPassword2" class="sr-only">Avg Monthly Cost</label>
+                                        <input type="value" placeholder="Avg Monthly Cost" id="exampleInputPassword2" class="form-control">
+                                    </div>
+                                    <!--cost over 25yrs will be calculated from this form-->
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+          </div>
+
+          <!--system info-->
+          <div class="row">
+                      <div class="col-lg-8">
+                          <div class="ibox float-e-margins">
+                              <div class="ibox-title">
+                                  <h5>System Info</h5>
+                                  <div class="ibox-tools">
+                                      <a class="collapse-link">
+                                          <i class="fa fa-chevron-up"></i>
+                                      </a>
+                                      <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                          <i class="fa fa-wrench"></i>
+                                      </a>
+                                      <ul class="dropdown-menu dropdown-user">
+                                          <li><a href="#">Config option 1</a>
+                                          </li>
+                                          <li><a href="#">Config option 2</a>
+                                          </li>
+                                      </ul>
+                                      <a class="close-link">
+                                          <i class="fa fa-times"></i>
+                                      </a>
+                                  </div>
+                              </div>
+                              <div class="ibox-content">
+                                  <form role="form" class="form-inline">
+                                      <div class="form-group">
+                                          <label for="exampleInputPassword2" class="sr-only">Total Size</label>
+                                          <input type="text" placeholder="Total Size" id="exampleInputPassword2" class="form-control">
+                                      </div>
+                                      <div class="form-group">
+                                          <label for="exampleInputPassword2" class="sr-only">Estimated Annual Production</label>
+                                          <input type="value" placeholder="Est Annual Production" id="exampleInputPassword2" class="form-control">
+                                      </div>
+                                      <div class="form-group">
+                                          <label for="exampleInputPassword2" class="sr-only">PV Panel Count</label>
+                                          <input type="value" placeholder="PV Panel Count" id="exampleInputPassword2" class="form-control">
+                                      </div>
+                                      <div class="form-group">
+                                          <label for="exampleInputPassword2" class="sr-only">PV Panel Make and Model </label>
+                                          <input type="text" placeholder="PV Panel Make and Model " id="exampleInputPassword2" class="form-control">
+                                      </div>
+                                      <div class="form-group">
+                                          <label for="exampleInputPassword2" class="sr-only">Inverter</label>
+                                          <input type="text" placeholder="Inverter" id="exampleInputPassword2" class="form-control">
+                                      </div>
+                                      <div class="form-group">
+                                          <label for="exampleInputPassword2" class="sr-only">Licensing</label>
+                                          <input type="text" placeholder="Licensing" id="exampleInputPassword2" class="form-control">
+                                      </div>
+                                  </form>
+                              </div>
+                          </div>
+                      </div>
+
+            </div>
+
+
+
+
+
+
+
+
+        <!--upload files option-->
+        <div class="row">
+                    <div class="col-lg-8">
+                        <div class="ibox float-e-margins">
+                            <div class="ibox-title">
+                                <h5>Upload Documents</h5>
+                                <div class="ibox-tools">
+                                    <a class="collapse-link">
+                                        <i class="fa fa-chevron-up"></i>
+                                    </a>
+                                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                        <i class="fa fa-wrench"></i>
+                                    </a>
+                                    <ul class="dropdown-menu dropdown-user">
+                                        <li><a href="#">Config option 1</a>
+                                        </li>
+                                        <li><a href="#">Config option 2</a>
+                                        </li>
+                                    </ul>
+                                    <a class="close-link">
+                                        <i class="fa fa-times"></i>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="ibox-content">
+                              <div class="fileinput fileinput-new input-group" data-provides="fileinput">
+                                  <div class="form-control" data-trigger="fileinput"><i class="glyphicon glyphicon-file fileinput-exists"></i> <span class="fileinput-filename"></span></div>
+                                  <span class="input-group-addon btn btn-default btn-file"><span class="fileinput-new">Select file</span><span class="fileinput-exists">Change</span><input type="file" name="..."></span>
+                                  <a href="#" class="input-group-addon btn btn-default fileinput-exists" data-dismiss="fileinput">Remove</a>
+                              </div>
+                            </div>
+                        </div>
+                    </div>
+
+          </div>
+          
+<!--edit this so that all forms will be able to upload-->
+          <script type="text/javascript">
+          submitForms = function(){
+              document.getElementById("form1").submit();
+              document.getElementById("form2").submit();
+          }
+          </script>
+          <div class="submitbutton"> <!--javascript above links all forms here to one submit button-->
+            <input type="button" class="btn btn-primary" value="Submit!" onclick="submitForms()" />
+          </div>
+
+
+    <!-- Mainly scripts -->
+    <script src="js/jquery-3.1.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/plugins/metisMenu/jquery.metisMenu.js"></script>
+    <script src="js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+
+    <!-- Flot -->
+    <script src="js/plugins/flot/jquery.flot.js"></script>
+    <script src="js/plugins/flot/jquery.flot.tooltip.min.js"></script>
+    <script src="js/plugins/flot/jquery.flot.spline.js"></script>
+    <script src="js/plugins/flot/jquery.flot.resize.js"></script>
+    <script src="js/plugins/flot/jquery.flot.pie.js"></script>
+
+    <!-- Peity -->
+    <script src="js/plugins/peity/jquery.peity.min.js"></script>
+    <script src="js/demo/peity-demo.js"></script>
+
+    <!-- Custom and plugin javascript -->
+    <script src="js/inspinia.js"></script>
+    <script src="js/plugins/pace/pace.min.js"></script>
+
+    <!-- jQuery UI -->
+    <script src="js/plugins/jquery-ui/jquery-ui.min.js"></script>
+
+    <!-- GITTER -->
+    <script src="js/plugins/gritter/jquery.gritter.min.js"></script>
+
+    <!-- Sparkline -->
+    <script src="js/plugins/sparkline/jquery.sparkline.min.js"></script>
+
+    <!-- Sparkline demo data  -->
+    <script src="js/demo/sparkline-demo.js"></script>
+
+    <!-- ChartJS-->
+    <script src="js/plugins/chartJs/Chart.min.js"></script>
+
+    <!-- Toastr -->
+    <script src="js/plugins/toastr/toastr.min.js"></script>
+
+    <!-- Scripts -->
+    <script src="components/scripts.js"></script>
+
+
+</body>
+
+<input type="hidden" class="admin_url"  value="<?PHP if(isset($adminUrl)) echo $adminUrl;?>">
+
+</html>
