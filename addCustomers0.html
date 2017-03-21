@@ -119,6 +119,87 @@ session_start();
     </ul>
 </nav>
 </div>
+
+<!--start new form-->
+<div class="wrapper wrapper-content animated fadeInLeft">
+<div class="row">
+          <div class="col-lg-2">
+                          <button class="btn btn-primary dim btn-large-dim" type="button" id="new_lead_btn"><i class="fa fa-user"></i></button>
+                          </div>
+
+<div class="col-lg-8 hide" id="form1">
+                  <div class="ibox float-e-margins">
+                      <div class="ibox-title">
+                          <h5>New Lead</h5>
+                          <div class="ibox-tools">
+                              <a class="collapse-link">
+                                  <i class="fa fa-chevron-up"></i>
+                              </a>
+
+                              <a class="close-link">
+                                  <i class="fa fa-times"></i>
+                              </a>
+                          </div>
+                      </div>
+                      <div class="ibox-content">
+                          <form role="form" class="form-inline" action="#">
+                              <div class="form-group">
+                                  <label for="exampleInputEmail2" class="sr-only">kWh</label>
+                                  <input type="email" placeholder="kWh" id="exampleInputEmail2" class="form-control">
+                              </div>
+                              <div class="form-group">
+                                  <label for="exampleInputPassword2" class="sr-only">Rate</label>
+                                  <input type="password" placeholder="Rate" id="exampleInputPassword2" class="form-control">
+                              </div>
+
+                              <button class="btn btn-success btn-rounded" id="form1_submit">Calculate Freedom!</button>
+                          </form>
+                      </div>
+                  </div>
+              </div>
+            </div>
+
+            <div class="row">
+
+
+            <div class="col-lg-8 hide" id="form2">
+                                <div class="ibox float-e-margins">
+                                    <div class="ibox-title">
+                                        <h5>New Lead</h5>
+                                        <div class="ibox-tools">
+                                            <a class="collapse-link">
+                                                <i class="fa fa-chevron-up"></i>
+                                            </a>
+
+                                            <a class="close-link">
+                                                <i class="fa fa-times"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="ibox-content">
+                                        <form role="form" class="form-inline" action="#">
+                                            <div class="form-group">
+                                                <label for="exampleInputEmail2" class="sr-only">kWh</label>
+                                                <input type="email" placeholder="kWh" id="exampleInputEmail2" class="form-control">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="exampleInputPassword2" class="sr-only">Rate</label>
+                                                <input type="password" placeholder="Rate" id="exampleInputPassword2" class="form-control">
+                                            </div>
+
+                                            <button class="btn btn-success btn-rounded" id="form1_submit">Calculate Freedom!</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                          </div>
+
+
+
+
+
+        </div>
+
     <!--Start form-->
     <!--freedom expert info-->
     <div class="row">
@@ -419,7 +500,7 @@ session_start();
                     </div>
 
           </div>
-          
+
 <!--edit this so that all forms will be able to upload-->
           <script type="text/javascript">
           submitForms = function(){
