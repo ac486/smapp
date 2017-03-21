@@ -81,14 +81,14 @@ $( document ).ready(function() {
 
 	});
 
-	$("#new_lead_btn").click(function(){
-		$("#form1").removeClass("hide");
-
-});
-
 
 	$("#form1_submit").click(function(){
-		$("#form2").removeClass("hide");
+		$("#button1").removeClass("hide");
+		$("#button2").removeClass("hide");
+
+		$("#button3").removeClass("hide");
+
+		$("#button4").removeClass("hide");
 
 });
 
