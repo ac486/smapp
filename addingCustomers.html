@@ -131,6 +131,10 @@ session_start();
                                   <label for="exampleInputPassword2" class="sr-only">Last Name</label>
                                   <input type="text" placeholder="Last Name" id="exampleInputPassword2" class="form-control">
                               </div>
+                              <div class="form-group">
+                                  <label for="exampleInputPassword2" class="sr-only">Employee number</label>
+                                  <input type="value" placeholder="Employee ID#" id="exampleInputPassword2" class="form-control">
+                              </div>
 
 
 
@@ -142,56 +146,21 @@ session_start();
 
     </div>
 
+
 <!-- Initial Input -->
+
     <div class="row">
-
-
-      <div class="col-lg-8 " id="form1">
-                        <div class="ibox float-e-margins">
-                            <div class="ibox-title">
-                                <h5>New Lead</h5>
-                                <div class="ibox-tools">
-                                    <a class="collapse-link">
-                                        <i class="fa fa-chevron-up"></i>
-                                    </a>
-
-                                    <a class="close-link">
-                                        <i class="fa fa-times"></i>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="ibox-content">
-                                <form role="form" class="form-inline" action="#">
-                                    <div class="form-group">
-                                        <label for="exampleInputEmail2" class="sr-only">kWh</label>
-                                        <input type="email" placeholder="kWh" id="exampleInputEmail2" class="form-control">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="exampleInputPassword2" class="sr-only">Rate</label>
-                                        <input type="password" placeholder="Rate" id="exampleInputPassword2" class="form-control">
-                                    </div>
-
-                                    <button class="btn btn-success btn-rounded" id="form1_submit">Calculate Freedom!</button>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-    </div>
-
-<div class="row">
           <div class="col-lg-4">
             <div class="ibox float-e-margins">
 
-              <button class="btn btn-primary btn-info dim btn-large-dim hide" type="button" id="button1"><i class="fa fa-clock-o"></i></button>
-              <button class="btn btn-primary btn-warning dim btn-large-dim hide" type="button" id="button2"><i class="fa fa-leaf"></i></button>
-              <button class="btn btn-primary dim btn-large-dim hide" type="button" id="button3"><i class="fa fa-handshake-o"></i></button>
-              <button class="btn btn-primary btn-success dim btn-dim btn-large-dim hide" type="button" id="button4"><i class="fa fa-usd"></i></button>
-
-
-</div>
+              <button class="btn btn-primary btn-info dim btn-large-dim" type="button" id="button1"><i class="fa fa-clock-o"></i></button>
+              <button class="btn btn-primary btn-warning dim btn-large-dim" type="button" id="button2"><i class="fa fa-leaf"></i></button>
+              <button class="btn btn-primary dim btn-large-dim" type="button" id="button3"><i class="fa fa-handshake-o"></i></button>
+              <button class="btn btn-primary btn-success dim btn-dim btn-large-dim" type="button" id="button4"><i class="fa fa-usd"></i></button>
+              <button class="btn btn-primary dim btn-large-dim" type="button" id="button5"><i class="fa fa-usd"></i></button>
+            </div>
           </div>
-
-              </div> <!-- end of row-->
+        </div> <!-- end of row-->
 
 
 
@@ -244,11 +213,13 @@ session_start();
                                                 </div>
                                                 <!--cost over 25yrs will be calculated from this form-->
                                             </form>
+
                                         </div>
                                     </div>
                                 </div>
 
                       </div>
+
 
                       <!--system info-->
                       <div class="row">
@@ -416,7 +387,7 @@ session_start();
                       <div class="submitbutton"> <!--javascript above links all forms here to one submit button-->
                         <input type="button" class="btn btn-primary" value="Submit!" onclick="submitForms()" />
                       </div>
-        </div>
+        </div> <!--wrapper div-->
 
 
 
