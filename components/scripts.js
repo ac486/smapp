@@ -85,6 +85,10 @@ $( document ).ready(function() {
 		$("#form1").removeClass("hide");
 
 });
+$("#new_lead_btn2").click(function(){
+	$("#form2").removeClass("hide");
+
+});
 
 
 	$("#form1_submit").click(function(){
