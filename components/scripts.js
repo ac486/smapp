@@ -90,10 +90,11 @@ $("#new_lead_btn2").click(function(){
 
 });
 
-
-	$("#form1_submit").click(function(){
-		$("#form2").removeClass("hide");
+$("#new_lead_btn3").click(function(){
+	$("#form3").removeClass("hide");
 
 });
+
+
 
 });

@@ -141,13 +141,12 @@ session_start();
           <div class="col-lg-8">
             <div class="ibox float-e-margins">
 
-              <button class="btn btn-primary btn-info dim btn-large-dim" type="button" id="new_lead_btn"><i class="fa fa-clock-o"></i></button>
-              <button class="btn btn-primary btn-warning dim btn-large-dim" type="button" id="button2"><i class="fa fa-leaf"></i></button>
-              <button class="btn btn-primary dim btn-large-dim" type="button" id="button3"><i class="fa fa-handshake-o"></i></button>
-              <button class="btn btn-primary btn-success dim btn-dim btn-large-dim" type="button" id="button4"><i class="fa fa-usd"></i></button>
-              <button class="btn btn-primary dim btn-large-dim" type="button" value="help" id="button5">?</button>
-              <button class="btn btn-primary dim btn-large-dim" type="button" value="help" id="button6"><i class="fa fa-briefcase"></i></button>
-              <button class="btn btn-primary dim btn-large-dim" type="button" value="help" id="button6">!</button>
+              <button class="btn btn-primary btn-info dim btn-large-dim" type="button" id="new_lead_btn"><i class="fa fa-clock-o"></i></button> <!--customer info button-->
+              <button class="btn btn-primary btn-warning dim btn-large-dim" type="button" id="new_lead_btn2"><i class="fa fa-leaf"></i></button><!--presentation-->
+              <button class="btn btn-primary dim btn-large-dim" type="button" id="new_lead_btn3"><i class="fa fa-handshake-o"></i></button><!--cost of doing nothing-->
+              <button class="btn btn-primary btn-success dim btn-dim btn-large-dim" type="button" id="button4"><i class="fa fa-usd"></i></button><!--your system info-->
+              <button class="btn btn-primary dim btn-large-dim" type="button" value="help" id="button5">?</button><!--cost breakdown-->
+              <button class="btn btn-primary dim btn-large-dim" type="button" value="help" id="button6"><i class="fa fa-briefcase"></i></button><!--incentive breakdown-->
             </div>
           </div>
 
@@ -156,9 +155,246 @@ session_start();
 
 
                 <!--Start form-->
-                    <!--usage info-->
+
+                <!--customer info-->
+              <div class="row">
+                          <div class="col-lg-8 hide" id="form1">
+                              <div class="ibox float-e-margins">
+                                  <div class="ibox-title">
+                                      <h5>Customer Info</h5>
+                                      <div class="ibox-tools">
+                                          <a class="collapse-link">
+                                              <i class="fa fa-chevron-up"></i>
+                                          </a>
+                                          <a class="close-link">
+                                              <i class="fa fa-times"></i>
+                                          </a>
+                                      </div>
+                                  </div>
+                                  <div class="ibox-content">
+                                      <form role="form" class="form-inline">
+                                          <div class="form-group">
+                                              <label for="exampleInputPassword2" class="sr-only">First Name</label>
+                                              <input type="text" placeholder="First Name" id="exampleInputPassword2" class="form-control">
+                                          </div>
+                                          <div class="form-group">
+                                              <label for="exampleInputPassword2" class="sr-only">Last Name</label>
+                                              <input type="text" placeholder="Last Name" id="exampleInputPassword2" class="form-control">
+                                          </div>
+                                          <div class="form-group">
+                                              <label for="exampleInputEmail2" class="sr-only">Email address</label>
+                                              <input type="text" placeholder="Email" id="exampleInputEmail2" class="form-control">
+                                          </div>
+                                          <div class="form-group">
+                                              <label for="exampleInputPassword2" class="sr-only">Phone #</label>
+                                              <input type="value" placeholder="Phone #" id="exampleInputPassword2" class="form-control">
+                                          </div>
+                                          <p></p>
+                                          <div class="form-group">
+                                              <label for="exampleInputPassword2" class="sr-only">Street Name</label>
+                                              <input type="text" placeholder="Street Name" id="exampleInputPassword2" class="form-control">
+                                          </div>
+                                          <div class="form-group">
+                                              <label for="exampleInputPassword2" class="sr-only">City</label>
+                                              <input type="text" placeholder="City" id="exampleInputPassword2" class="form-control">
+                                          </div>
+                                          <div class="form-group">
+                                              <label for="exampleInputEmail2" class="sr-only">State</label>
+                                              <input type="text" placeholder="State" id="exampleInputEmail2" class="form-control">
+                                          </div>
+                                          <div class="form-group">
+                                              <label for="exampleInputPassword2" class="sr-only">Zip Code</label>
+                                              <input type="value" placeholder="Zip Code" id="exampleInputPassword2" class="form-control">
+                                          </div>
+                                          <p></p>
+                                          <p> <!--START OF 12 MONTH USAGE INFO--> 12 Month Usage</p>
+                                            <div class="form-group">
+                                                <label for="exampleInputPassword2" class="sr-only">Avg Monthly Cost</label>
+                                                <input type="value" placeholder="Jan" id="exampleInputPassword2" class="form-control">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="exampleInputPassword2" class="sr-only">Avg Monthly Cost</label>
+                                                <input type="value" placeholder="Feb" id="exampleInputPassword2" class="form-control">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="exampleInputPassword2" class="sr-only">Avg Monthly Cost</label>
+                                                <input type="value" placeholder="Mar" id="exampleInputPassword2" class="form-control">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="exampleInputPassword2" class="sr-only">Avg Monthly Cost</label>
+                                                <input type="value" placeholder="Apr" id="exampleInputPassword2" class="form-control">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="exampleInputPassword2" class="sr-only">Avg Monthly Cost</label>
+                                                <input type="value" placeholder="May" id="exampleInputPassword2" class="form-control">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="exampleInputPassword2" class="sr-only">Avg Monthly Cost</label>
+                                                <input type="value" placeholder="Jun" id="exampleInputPassword2" class="form-control">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="exampleInputPassword2" class="sr-only">Avg Monthly Cost</label>
+                                                <input type="value" placeholder="July" id="exampleInputPassword2" class="form-control">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="exampleInputPassword2" class="sr-only">Avg Monthly Cost</label>
+                                                <input type="value" placeholder="Aug" id="exampleInputPassword2" class="form-control">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="exampleInputPassword2" class="sr-only">Avg Monthly Cost</label>
+                                                <input type="value" placeholder="Sept" id="exampleInputPassword2" class="form-control">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="exampleInputPassword2" class="sr-only">Avg Monthly Cost</label>
+                                                <input type="value" placeholder="Oct" id="exampleInputPassword2" class="form-control">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="exampleInputPassword2" class="sr-only">Avg Monthly Cost</label>
+                                                <input type="value" placeholder="Nov" id="exampleInputPassword2" class="form-control">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="exampleInputPassword2" class="sr-only">Avg Monthly Cost</label>
+                                                <input type="value" placeholder="Dec" id="exampleInputPassword2" class="form-control">
+                                            </div>
+
+
+
+
+                                      </form>
+                                  </div>
+                              </div>
+                          </div>
+
+                  </div>
+
+
+                  <div class="row"> <!--presentation box-->
+                              <div class="col-lg-8 hide" id="form2">
+                                  <div class="ibox float-e-margins">
+                                      <div class="ibox-title">
+                                          <h5>Presentation</h5>
+                                          <div class="ibox-tools">
+                                              <a class="collapse-link">
+                                                  <i class="fa fa-chevron-up"></i>
+                                              </a>
+                                              <a class="close-link">
+                                                  <i class="fa fa-times"></i>
+                                              </a>
+                                          </div>
+                                      </div>
+                                      <div class="ibox-content">
+                                          <form role="form" class="form-inline">
+
+                                          </form>
+                                      </div>
+                                  </div>
+                              </div>
+
+                    </div>
+
+                    <div class="row"> <!--cost of doing nothing box-->
+                                <div class="col-lg-8 hide" id="form3">
+                                    <div class="ibox float-e-margins">
+                                        <div class="ibox-title">
+                                            <h5>Cost of Doing Nothing</h5>
+                                            <div class="ibox-tools">
+                                                <a class="collapse-link">
+                                                    <i class="fa fa-chevron-up"></i>
+                                                </a>
+                                                <a class="close-link">
+                                                    <i class="fa fa-times"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="ibox-content">
+                                            <form role="form" class="form-inline">
+
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+
+                      </div>
+
+                      <div class="row"> <!--you system info-->
+                                  <div class="col-lg-8 hide" id="form4">
+                                      <div class="ibox float-e-margins">
+                                          <div class="ibox-title">
+                                              <h5>Your system info</h5>
+                                              <div class="ibox-tools">
+                                                  <a class="collapse-link">
+                                                      <i class="fa fa-chevron-up"></i>
+                                                  </a>
+                                                  <a class="close-link">
+                                                      <i class="fa fa-times"></i>
+                                                  </a>
+                                              </div>
+                                          </div>
+                                          <div class="ibox-content">
+                                              <form role="form" class="form-inline">
+
+                                              </form>
+                                          </div>
+                                      </div>
+                                  </div>
+
+                        </div>
+
+                        <div class="row"> <!--cost breakdown-->
+                                    <div class="col-lg-8 hide" id="form5">
+                                        <div class="ibox float-e-margins">
+                                            <div class="ibox-title">
+                                                <h5>Cost breakdown</h5>
+                                                <div class="ibox-tools">
+                                                    <a class="collapse-link">
+                                                        <i class="fa fa-chevron-up"></i>
+                                                    </a>
+                                                    <a class="close-link">
+                                                        <i class="fa fa-times"></i>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div class="ibox-content">
+                                                <form role="form" class="form-inline">
+
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                          </div>
+
+                          <div class="row"> <!--incentive breakdown-->
+                                      <div class="col-lg-8 hide" id="form6">
+                                          <div class="ibox float-e-margins">
+                                              <div class="ibox-title">
+                                                  <h5>incentive</h5>
+                                                  <div class="ibox-tools">
+                                                      <a class="collapse-link">
+                                                          <i class="fa fa-chevron-up"></i>
+                                                      </a>
+                                                      <a class="close-link">
+                                                          <i class="fa fa-times"></i>
+                                                      </a>
+                                                  </div>
+                                              </div>
+                                              <div class="ibox-content">
+                                                  <form role="form" class="form-inline">
+
+                                                  </form>
+                                              </div>
+                                          </div>
+                                      </div>
+
+                            </div>
+
+
+
+
+
+                    <!--usage info
                     <div class="row">
-                                <div class="col-lg-8 hide" id="form1">
+                                <div class="col-lg-8" id="">
                                     <div class="ibox float-e-margins">
                                         <div class="ibox-title">
                                             <h5>Usage and Cost</h5>
@@ -193,7 +429,7 @@ session_start();
                                                     <label for="exampleInputPassword2" class="sr-only">Avg Monthly Cost</label>
                                                     <input type="value" placeholder="Avg Monthly Cost" id="exampleInputPassword2" class="form-control">
                                                 </div>
-                                                <!--cost over 25yrs will be calculated from this form-->
+
                                             </form>
 
                                         </div>
@@ -201,9 +437,10 @@ session_start();
                                 </div>
 
                       </div>
+                    -->
 
+<!--system info
 
-                      <!--system info-->
                       <div class="row">
                                   <div class="col-lg-8">
                                       <div class="ibox float-e-margins">
@@ -250,70 +487,11 @@ session_start();
                                   </div>
 
                         </div>
+-->
 
 
 
 
-                        <!--customer info-->
-                      <div class="row">
-                                  <div class="col-lg-8">
-                                      <div class="ibox float-e-margins">
-                                          <div class="ibox-title">
-                                              <h5>Customer Info</h5>
-                                              <div class="ibox-tools">
-                                                  <a class="collapse-link">
-                                                      <i class="fa fa-chevron-up"></i>
-                                                  </a>
-                                                  <a class="close-link">
-                                                      <i class="fa fa-times"></i>
-                                                  </a>
-                                              </div>
-                                          </div>
-                                          <div class="ibox-content">
-                                              <form role="form" class="form-inline">
-                                                  <div class="form-group">
-                                                      <label for="exampleInputPassword2" class="sr-only">First Name</label>
-                                                      <input type="text" placeholder="First Name" id="exampleInputPassword2" class="form-control">
-                                                  </div>
-                                                  <div class="form-group">
-                                                      <label for="exampleInputPassword2" class="sr-only">Last Name</label>
-                                                      <input type="text" placeholder="Last Name" id="exampleInputPassword2" class="form-control">
-                                                  </div>
-                                                  <div class="form-group">
-                                                      <label for="exampleInputEmail2" class="sr-only">Email address</label>
-                                                      <input type="text" placeholder="Email" id="exampleInputEmail2" class="form-control">
-                                                  </div>
-                                                  <div class="form-group">
-                                                      <label for="exampleInputPassword2" class="sr-only">Phone #</label>
-                                                      <input type="value" placeholder="Phone #" id="exampleInputPassword2" class="form-control">
-                                                  </div>
-                                                  <p>
-                                                  <div class="form-group">
-                                                      <label for="exampleInputPassword2" class="sr-only">Street Name</label>
-                                                      <input type="text" placeholder="Street Name" id="exampleInputPassword2" class="form-control">
-                                                  </div>
-                                                  <div class="form-group">
-                                                      <label for="exampleInputPassword2" class="sr-only">City</label>
-                                                      <input type="text" placeholder="City" id="exampleInputPassword2" class="form-control">
-                                                  </div>
-                                                  <div class="form-group">
-                                                      <label for="exampleInputEmail2" class="sr-only">State</label>
-                                                      <input type="text" placeholder="State" id="exampleInputEmail2" class="form-control">
-                                                  </div>
-                                                  <div class="form-group">
-                                                      <label for="exampleInputPassword2" class="sr-only">Zip Code</label>
-                                                      <input type="value" placeholder="Zip Code" id="exampleInputPassword2" class="form-control">
-                                                  </div>
-
-
-
-
-                                              </form>
-                                          </div>
-                                      </div>
-                                  </div>
-
-                          </div>
 
 
                       <div class="submitbutton"> <!--javascript above links all forms here to one submit button-->
