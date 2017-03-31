@@ -82,19 +82,27 @@ $( document ).ready(function() {
 	});
 
 	$("#new_lead_btn").click(function(){
-		$("#form1").removeClass("hide");
-
+		 $("#form1").toggle();
 	});
-	$("#new_lead_btn2").click(function(){
-		$("#form2").removeClass("hide");
 
+	$("#new_lead_btn2").click(function(){
+		$("#form2").toggle();
 	});
 
 	$("#new_lead_btn3").click(function(){
-		$("#form3").removeClass("hide");
-
+		$("#form3").toggle();
 	});
 
+    $("#new_lead_btn4").click(function(){
+        $("#form4").toggle();
+    });
 
+    $("#new_lead_btn5").click(function(){
+        $("#form5").toggle();
+    });
+
+    $("#new_lead_btn6").click(function(){
+        $("#form6").toggle();
+    });
 
 });

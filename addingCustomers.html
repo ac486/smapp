@@ -94,6 +94,7 @@ session_start();
         </ul>
     </nav>
 </div>
+
 <!--start new form-->
 <div class="wrapper wrapper-content animated fadeInLeft">
 
@@ -103,14 +104,17 @@ session_start();
                   <div class="ibox float-e-margins">
                       <div class="ibox-title">
                           <h5>Freedom Expert</h5>
-                          <div class="ibox-tools">
-                              <a class="collapse-link">
-                                  <i class="fa fa-chevron-up"></i>
-                              </a>
-                              <a class="close-link">
-                                  <i class="fa fa-times"></i>
-                              </a>
-                          </div>
+
+                          <!--Commented so that user does not close this required form-->
+                          <!--<div class="ibox-tools">-->
+                              <!--<a class="collapse-link">-->
+                                  <!--<i class="fa fa-chevron-up"></i>-->
+                              <!--</a>-->
+                              <!--<a class="close-link">-->
+                                  <!--<i class="fa fa-times"></i>-->
+                              <!--</a>-->
+                          <!--</div>-->
+
                       </div>
                       <div class="ibox-content">
                           <form role="form" class="form-inline">
@@ -132,21 +136,21 @@ session_start();
                   </div>
               </div>
 
-    </div>
+  </div>
 
 
 <!-- Initial Input -->
 
     <div class="row">
           <div class="col-lg-8">
-            <div class="ibox float-e-margins">
+            <div class="ibox float-e-margins tooltip-demo">
 
-              <button class="btn btn-primary btn-info dim btn-large-dim" type="button" id="new_lead_btn"><i class="fa fa-clock-o"></i></button> <!--customer info button-->
-              <button class="btn btn-primary btn-warning dim btn-large-dim" type="button" id="new_lead_btn2"><i class="fa fa-leaf"></i></button><!--presentation-->
-              <button class="btn btn-primary dim btn-large-dim" type="button" id="new_lead_btn3"><i class="fa fa-handshake-o"></i></button><!--cost of doing nothing-->
-              <button class="btn btn-primary btn-success dim btn-dim btn-large-dim" type="button" id="button4"><i class="fa fa-usd"></i></button><!--your system info-->
-              <button class="btn btn-primary dim btn-large-dim" type="button" value="help" id="button5">?</button><!--cost breakdown-->
-              <button class="btn btn-primary dim btn-large-dim" type="button" value="help" id="button6"><i class="fa fa-briefcase"></i></button><!--incentive breakdown-->
+                <button class="btn btn-primary btn-info dim btn-large-dim" type="button" id="new_lead_btn" data-toggle="tooltip" data-placement="top" title="Customer Information"><i class="fa fa-clock-o"></i></button> <!--customer info button-->
+              <button class="btn btn-primary btn-warning dim btn-large-dim" type="button" id="new_lead_btn2" data-toggle="tooltip" data-placement="top" title="Presentation"><i class="fa fa-leaf"></i></button><!--presentation-->
+              <button class="btn btn-primary dim btn-large-dim" type="button" id="new_lead_btn3" data-toggle="tooltip" data-placement="top" title="Cost of Doing Nothing"><i class="fa fa-handshake-o"></i></button><!--cost of doing nothing-->
+              <button class="btn btn-primary btn-success dim btn-dim btn-large-dim" type="button" id="new_lead_btn4" data-toggle="tooltip" data-placement="top" title="System Information"><i class="fa fa-usd"></i></button><!--your system info-->
+              <button class="btn btn-primary dim btn-large-dim" type="button" value="help" id="new_lead_btn5" data-toggle="tooltip" data-placement="top" title="Cost Breakdown">?</button><!--cost breakdown-->
+              <button class="btn btn-primary dim btn-large-dim" type="button" value="help" id="new_lead_btn6" data-toggle="tooltip" data-placement="top" title="Incentive Breakdown"><i class="fa fa-briefcase"></i></button><!--incentive breakdown-->
             </div>
           </div>
 
@@ -158,10 +162,10 @@ session_start();
 
                 <!--customer info-->
               <div class="row">
-                          <div class="col-lg-8 hide" id="form1">
+                          <div class="col-lg-8 initiallyHidden" id="form1">
                               <div class="ibox float-e-margins">
                                   <div class="ibox-title">
-                                      <h5>Customer Info</h5>
+                                      <h5>Customer Information</h5>
                                       <div class="ibox-tools">
                                           <a class="collapse-link">
                                               <i class="fa fa-chevron-up"></i>
@@ -272,12 +276,12 @@ session_start();
 
                   </div>
 
-
                   <div class="row"> <!--presentation box-->
-                              <div class="col-lg-8 hide" id="form2">
+                              <div class="col-lg-8 initiallyHidden" id="form2">
                                   <div class="ibox float-e-margins">
                                       <div class="ibox-title">
                                           <h5>Presentation</h5>
+
                                           <div class="ibox-tools">
                                               <a class="collapse-link">
                                                   <i class="fa fa-chevron-up"></i>
@@ -298,7 +302,7 @@ session_start();
                     </div>
 
                     <div class="row"> <!--cost of doing nothing box-->
-                                <div class="col-lg-8 hide" id="form3">
+                                <div class="col-lg-8 initiallyHidden" id="form3">
                                     <div class="ibox float-e-margins">
                                         <div class="ibox-title">
                                             <h5>Cost of Doing Nothing</h5>
@@ -322,7 +326,7 @@ session_start();
                       </div>
 
                       <div class="row"> <!--you system info-->
-                                  <div class="col-lg-8 hide" id="form4">
+                                  <div class="col-lg-8 initiallyHidden" id="form4">
                                       <div class="ibox float-e-margins">
                                           <div class="ibox-title">
                                               <h5>Your system info</h5>
@@ -346,7 +350,7 @@ session_start();
                         </div>
 
                         <div class="row"> <!--cost breakdown-->
-                                    <div class="col-lg-8 hide" id="form5">
+                                    <div class="col-lg-8 initiallyHidden" id="form5">
                                         <div class="ibox float-e-margins">
                                             <div class="ibox-title">
                                                 <h5>Cost breakdown</h5>
@@ -370,7 +374,7 @@ session_start();
                           </div>
 
                           <div class="row"> <!--incentive breakdown-->
-                                      <div class="col-lg-8 hide" id="form6">
+                                      <div class="col-lg-8 initiallyHidden" id="form6">
                                           <div class="ibox float-e-margins">
                                               <div class="ibox-title">
                                                   <h5>incentive</h5>
