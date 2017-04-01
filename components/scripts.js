@@ -90,8 +90,23 @@ $( document ).ready(function() {
 
 	});
 
-	$("#new_lead_btn3").click(function(){
+	$("#btn3").click(function(){
 		$("#form3").removeClass("hide");
+
+	});
+
+	$("#btn4").click(function(){
+		$("#form4").removeClass("hide");
+
+	});
+
+	$("#btn5").click(function(){
+		$("#form5").removeClass("hide");
+
+	});
+
+	$("#btn6").click(function(){
+		$("#form6").removeClass("hide");
 
 	});
 
