@@ -105,4 +105,25 @@ $( document ).ready(function() {
         $("#form6").toggle();
     });
 
+    $("#cust_form").submit(function () {
+        console.log("CUST FORM SUBMITTED");
+        $("#SRECGauge").removeClass("hide");
+
+        //Temporary value
+        c3.generate({
+            bindto: '#gauge',
+            data:{
+                columns: [
+                    ['data', 98.1]
+                ],
+
+                type: 'gauge'
+            },
+            color:{
+                pattern: ['#1ab394', '#BABABA']
+
+            }
+        });
+    })
+
 });
