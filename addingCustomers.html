@@ -13,6 +13,8 @@ session_start();
 ?>
 <html>
 
+
+
 <head>
 
     <meta charset="utf-8">
@@ -224,63 +226,64 @@ session_start();
                                           <p></p>
                                           <div class="form-group">
                                               <label for="exampleInputPassword2" class="sr-only">Avg Monthly Cost</label>
-                                              <input type="value" placeholder="Rate" id="exampleInputPassword2" class="form-control">
+                                              <input type="value" placeholder="Rate" id="utilRate" class="form-control">
                                           </div>
                                           <p></p>
                                           <p> <!--START OF 12 MONTH USAGE INFO--> 12 Month Usage</p>
                                             <div class="form-group">
                                                 <label for="exampleInputPassword2" class="sr-only">Avg Monthly Cost</label>
-                                                <input type="value" placeholder="Jan" id="exampleInputPassword2" class="form-control">
+                                                <input type="value" placeholder="Jan" id="jan" class="form-control">
                                             </div>
                                             <div class="form-group">
                                                 <label for="exampleInputPassword2" class="sr-only">Avg Monthly Cost</label>
-                                                <input type="value" placeholder="Feb" id="exampleInputPassword2" class="form-control">
+                                                <input type="value" placeholder="Feb" id="feb" class="form-control">
                                             </div>
                                             <div class="form-group">
                                                 <label for="exampleInputPassword2" class="sr-only">Avg Monthly Cost</label>
-                                                <input type="value" placeholder="Mar" id="exampleInputPassword2" class="form-control">
+                                                <input type="value" placeholder="Mar" id="mar" class="form-control">
                                             </div>
                                             <div class="form-group">
                                                 <label for="exampleInputPassword2" class="sr-only">Avg Monthly Cost</label>
-                                                <input type="value" placeholder="Apr" id="exampleInputPassword2" class="form-control">
+                                                <input type="value" placeholder="Apr" id="apr" class="form-control">
                                             </div>
                                             <div class="form-group">
                                                 <label for="exampleInputPassword2" class="sr-only">Avg Monthly Cost</label>
-                                                <input type="value" placeholder="May" id="exampleInputPassword2" class="form-control">
+                                                <input type="value" placeholder="May" id="may" class="form-control">
                                             </div>
                                             <div class="form-group">
                                                 <label for="exampleInputPassword2" class="sr-only">Avg Monthly Cost</label>
-                                                <input type="value" placeholder="Jun" id="exampleInputPassword2" class="form-control">
+                                                <input type="value" placeholder="Jun" id="jun" class="form-control">
                                             </div>
                                             <div class="form-group">
                                                 <label for="exampleInputPassword2" class="sr-only">Avg Monthly Cost</label>
-                                                <input type="value" placeholder="July" id="exampleInputPassword2" class="form-control">
+                                                <input type="value" placeholder="July" id="jul" class="form-control">
                                             </div>
                                             <div class="form-group">
                                                 <label for="exampleInputPassword2" class="sr-only">Avg Monthly Cost</label>
-                                                <input type="value" placeholder="Aug" id="exampleInputPassword2" class="form-control">
+                                                <input type="value" placeholder="Aug" id="aug" class="form-control">
                                             </div>
                                             <div class="form-group">
                                                 <label for="exampleInputPassword2" class="sr-only">Avg Monthly Cost</label>
-                                                <input type="value" placeholder="Sept" id="exampleInputPassword2" class="form-control">
+                                                <input type="value" placeholder="Sept" id="sep" class="form-control">
                                             </div>
                                             <div class="form-group">
                                                 <label for="exampleInputPassword2" class="sr-only">Avg Monthly Cost</label>
-                                                <input type="value" placeholder="Oct" id="exampleInputPassword2" class="form-control">
+                                                <input type="value" placeholder="Oct" id="oct" class="form-control">
                                             </div>
                                             <div class="form-group">
                                                 <label for="exampleInputPassword2" class="sr-only">Avg Monthly Cost</label>
-                                                <input type="value" placeholder="Nov" id="exampleInputPassword2" class="form-control">
+                                                <input type="value" placeholder="Nov" id="nov" class="form-control">
                                             </div>
                                             <div class="form-group">
                                                 <label for="exampleInputPassword2" class="sr-only">Avg Monthly Cost</label>
-                                                <input type="value" placeholder="Dec" id="exampleInputPassword2" class="form-control">
+                                                <input type="value" placeholder="Dec" id="dec" class="form-control">
                                             </div>
 
 
 
 
                                       </form>
+                                      <button onclick="generateInfo()">Generate Usage and Cost</button>
                                   </div>
                               </div>
                           </div>
@@ -352,8 +355,32 @@ session_start();
                                           </div>
                                           <div class="ibox-content">
                                               <form role="form" class="form-inline">
-
                                               </form>
+                                              <body>
+                                            <h2>Usage and Cost </h2><br>
+                                            Total Rate
+                                            <div id="totRate">Total Rate</div><br>
+                                            Annual Usage
+                                            <div id="annUse">Annual Usage</div><br>
+                                            Annual Cost
+                                            <div id="annCost">Annual Cost</div><br>
+                                            Monthly Cost
+                                            <div id="monCost">Monthly Cost</div><br>
+                                            System Size
+                                            <div id="sysSize">System Size</div><br>
+                                            Panel Count
+                                            <div id="panCount">Panel Count</div><br>
+                                            Actual Size
+                                            <div id="actSize">Actual Size</div><br>
+                                            Price
+                                            <div id="price">Price</div><br>
+                                            PV Panel Make & Model
+                                            <div id ="PVMakeModel">PV Panel Make & Model</div><br>
+                                            Inverter
+                                            <div id ="Inverter">Inverter</div><br>
+                                            License Engineering & Electrical
+                                            <div id ="LicEngElec">Lic Engineering & Electrical</div><br>
+                                              </body>
                                           </div>
                                       </div>
                                   </div>
@@ -527,7 +554,66 @@ session_start();
           submitForms = function(){
               document.getElementById("form1").submit();
               document.getElementById("form2").submit();
+
           }
+          generateInfo = function(){
+          jan =  document.getElementById("jan").value;
+          feb =  document.getElementById("feb").value;
+          mar =  document.getElementById("mar").value;
+          apr =  document.getElementById("apr").value;
+          may =  document.getElementById("may").value;
+          jun =  document.getElementById("jun").value;
+          jul =  document.getElementById("jul").value;
+          aug =  document.getElementById("aug").value;
+          sep =  document.getElementById("sep").value;
+          oct =  document.getElementById("oct").value;
+          nov =  document.getElementById("nov").value;
+          dec =  document.getElementById("dec").value;
+
+          dailyAvgTot =  (Number(jan) + Number(feb) + Number(mar) + Number(apr) +
+                   Number(may) + Number(jun) + Number(jul) + Number(aug) +
+                   Number(sep) + Number(oct) + Number(nov) + Number(dec))/12;
+          dailyAvgTot = dailyAvgTot.toFixed(2);
+          document.getElementById("totRate").innerHTML = dailyAvgTot;
+
+          annUsage = dailyAvgTot * 365;
+          annUsage = annUsage.toFixed(2);
+          document.getElementById("annUse").innerHTML = annUsage;
+
+          utilRate = document.getElementById("utilRate").value;
+          annCost = annUsage * utilRate;
+          annCost = annCost.toFixed(2);
+          document.getElementById("annCost").innerHTML = annCost;
+
+          monCost = annCost / 12;
+          montCost = monCost.toFixed(2);
+          document.getElementById("monCost").innerHTML = monCost;
+
+          conversionRate = 1.2;
+          sysSize = annUsage / conversionRate;
+          sysSize = sysSize.toFixed(2);
+          document.getElementById("sysSize").innerHTML = sysSize;
+
+          panelSize = 300;
+          panelCount = Math.round(sysSize / panelSize);
+          document.getElementById("panCount").innerHTML = panelCount;
+
+          actualSize = panelCount * panelSize;
+          document.getElementById("actSize").innerHTML = actualSize;
+
+          price = Math.round(actualSize) * 5000;
+          price = price.toFixed(2);
+          document.getElementById("price").innerHTML = price;
+
+          pvMakeModel = 'Silfab 300w';
+          document.getElementById("PVMakeModel").innerHTML = pvMakeModel;
+
+          inverter = 'Solar Edge';
+          document.getElementById("Inverter").innerHTML = inverter;
+
+          EngElec = 'Ryan Inc';
+          document.getElementById("LicEngElec").innerHTML = EngElec;
+        }
           </script>
 
 
