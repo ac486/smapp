@@ -89,6 +89,7 @@ $( document ).ready(function() {
 		$("#form2").toggle();
 	});
 
+
 	$("#new_lead_btn3").click(function(){
 		$("#form3").toggle();
 	});
@@ -100,6 +101,7 @@ $( document ).ready(function() {
     $("#new_lead_btn5").click(function(){
         $("#form5").toggle();
     });
+
 
     $("#new_lead_btn6").click(function(){
         $("#form6").toggle();
