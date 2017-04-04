@@ -586,7 +586,7 @@ session_start();
           document.getElementById("annCost").innerHTML = annCost;
 
           monCost = annCost / 12;
-          montCost = monCost.toFixed(2);
+          monCost = monCost.toFixed(2);
           document.getElementById("monCost").innerHTML = monCost;
 
           conversionRate = 1.2;
@@ -595,7 +595,7 @@ session_start();
           document.getElementById("sysSize").innerHTML = sysSize;
 
           panelSize = 300;
-          panelCount = Math.round(sysSize / panelSize); //round this up
+          panelCount = Math.ceil(sysSize / panelSize); //round this up
           document.getElementById("panCount").innerHTML = panelCount;
 
           actualSize = panelCount * panelSize; //round this up
