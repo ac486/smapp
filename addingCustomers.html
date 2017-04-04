@@ -357,29 +357,29 @@ session_start();
                                               <form role="form" class="form-inline">
                                               </form>
                                               <body>
-                                            <h2>Usage and Cost </h2><br>
-                                            Total Rate
-                                            <div id="totRate">Total Rate</div><br>
-                                            Annual Usage
-                                            <div id="annUse">Annual Usage</div><br>
-                                            Annual Cost
-                                            <div id="annCost">Annual Cost</div><br>
-                                            Monthly Cost
-                                            <div id="monCost">Monthly Cost</div><br>
-                                            System Size
-                                            <div id="sysSize">System Size</div><br>
-                                            Panel Count
-                                            <div id="panCount">Panel Count</div><br>
-                                            Actual Size
-                                            <div id="actSize">Actual Size</div><br>
-                                            Price
-                                            <div id="price">Price</div><br>
-                                            PV Panel Make & Model
-                                            <div id ="PVMakeModel">PV Panel Make & Model</div><br>
-                                            Inverter
-                                            <div id ="Inverter">Inverter</div><br>
-                                            License Engineering & Electrical
-                                            <div id ="LicEngElec">Lic Engineering & Electrical</div><br>
+                                                <h2>Usage and Cost </h2><br>
+                                                Daily Average
+                                                <div id="totRate">Total Rate</div><br>
+                                                Annual Usage
+                                                <div id="annUse">Annual Usage</div><br>
+                                                Annual Cost
+                                                <div id="annCost">Annual Cost</div><br>
+                                                Monthly Cost
+                                                <div id="monCost">Monthly Cost</div><br>
+                                                DC Production
+                                                <div id="sysSize">System Size</div><br>
+                                                Panel Count
+                                                <div id="panCount">Panel Count</div><br>
+                                                Actual Size
+                                                <div id="actSize">Actual Size</div><br>
+                                                Price
+                                                <div id="price">Price</div><br>
+                                                PV Panel Make & Model
+                                                <div id ="PVMakeModel">PV Panel Make & Model</div><br>
+                                                Inverter
+                                                <div id ="Inverter">Inverter</div><br>
+                                                License Engineering & Electrical
+                                                <div id ="LicEngElec">Lic Engineering & Electrical</div><br>
                                               </body>
                                           </div>
                                       </div>
@@ -590,21 +590,22 @@ session_start();
           document.getElementById("monCost").innerHTML = monCost;
 
           conversionRate = 1.2;
-          sysSize = annUsage / conversionRate;
+          sysSize = annUsage / conversionRate; //DC production
           sysSize = sysSize.toFixed(2);
           document.getElementById("sysSize").innerHTML = sysSize;
 
           panelSize = 300;
-          panelCount = Math.round(sysSize / panelSize);
+          panelCount = Math.round(sysSize / panelSize); //round this up
           document.getElementById("panCount").innerHTML = panelCount;
 
-          actualSize = panelCount * panelSize;
+          actualSize = panelCount * panelSize; //round this up
           document.getElementById("actSize").innerHTML = actualSize;
 
-          price = Math.round(actualSize) * 5000;
+          price = Math.round((actualSize) * 5000)/1000;
           price = price.toFixed(2);
           document.getElementById("price").innerHTML = price;
 
+          //drop down to edit
           pvMakeModel = 'Silfab 300w';
           document.getElementById("PVMakeModel").innerHTML = pvMakeModel;
 
