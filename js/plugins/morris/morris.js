@@ -1717,19 +1717,22 @@ Licensed under the BSD-2-Clause License.
     };
 
     Donut.prototype.setData = function(data) {
-      var row;
-      this.data = data;
-      this.values = (function() {
-        var _i, _len, _ref, _results;
-        _ref = this.data;
-        _results = [];
-        for (_i = 0, _len = _ref.length; _i < _len; _i++) {
-          row = _ref[_i];
-          _results.push(parseFloat(row.value));
+        var row;
+        this.data = data;
+        this.values = (function () {
+            var _i, _len, _ref, _results;
+            _ref = this.data;
+            _results = [];
+            for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+                row = _ref[_i];
+                _results.push(parseFloat(row.value));
+            }
+            return _results;
+        }).call(this);
+        if (this.el && this.el.width() > 0 && this.el.height() > 0) {
+            return this.redraw();
         }
-        return _results;
-      }).call(this);
-      return this.redraw();
+        else return null;
     };
 
     Donut.prototype.click = function(idx) {
@@ -1786,8 +1789,12 @@ Licensed under the BSD-2-Clause License.
 
     Donut.prototype.resizeHandler = function() {
       this.timeoutId = null;
-      this.raphael.setSize(this.el.width(), this.el.height());
-      return this.redraw();
+        if (this.el && this.el.width() > 0 && this.el.height() > 0) {
+            this.raphael.setSize(this.el.width(), this.el.height());
+            return this.redraw();
+        }
+        else return null;
+
     };
 
     return Donut;
