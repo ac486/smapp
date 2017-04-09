@@ -43,15 +43,15 @@ $(function() {
     //     pointSize:1,
     // });
 
-    Morris.Donut({
-        element: 'morris-donut-chart',
-        data: [{ label: "Monthly (USD)", value: 300 },
-            { label: "Yearly (USD)", value: 500 },
-            { label: "10 YR (USD)", value: 1000 },
-            { label: "25 YR (USD)", value: 2000 },],
-        resize: true,
-        colors: ['#87d6c6', '#54cdb4','#1ab394'],
-    });
+    // Morris.Donut({
+    //     element: 'morris-donut-chart',
+    //     data: [{ label: "Monthly (USD)", value: 300 },
+    //         { label: "Yearly (USD)", value: 500 },
+    //         { label: "10 YR (USD)", value: 1000 },
+    //         { label: "25 YR (USD)", value: 2000 },],
+    //     resize: true,
+    //     colors: ['#87d6c6', '#54cdb4','#1ab394'],
+    // });
 
 
     // Morris.Bar({
