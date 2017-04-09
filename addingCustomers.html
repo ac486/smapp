@@ -699,6 +699,7 @@ session_start();
     SRECGraph = function (value, graphType) {
         var data = value
         var SRECType = "#SREC"+graphType;
+
         $(SRECType).removeClass("hide");
 
         //Temporary value
@@ -784,6 +785,7 @@ session_start();
         document.getElementById("LicEngElec").innerHTML = EngElec;
 
         $("#form4").toggle();
+
         SRECValue = 69.9;
         var offset = "Offset";
         var annual = "Annual";
