@@ -107,25 +107,30 @@ $( document ).ready(function() {
         $("#form6").toggle();
     });
 
-    $("#cust_form").submit(function () {
-        console.log("CUST FORM SUBMITTED");
-        $("#SRECGauge").removeClass("hide");
 
-        //Temporary value
-        c3.generate({
-            bindto: '#gauge',
-            data:{
-                columns: [
-                    ['data', 98.1]
-                ],
+    $("#cust_form").submit(function(e)
+    {
+    	console.log("submiting");
+        var postData = $(this).serializeArray();
+        var formURL = $(this).attr("action");
+        $.ajax(
+            {
+                url : formURL,
+                type: "POST",
+                data : postData,
+                success:function(data, textStatus, jqXHR)
+                {
+                    //data: return data from server
+                },
+                error: function(jqXHR, textStatus, errorThrown)
+                {
+                    //if fails
+                }
+            });
+        e.preventDefault(); //STOP default action
+        e.unbind(); //unbind. to stop multiple form submit.
+    });
 
-                type: 'gauge'
-            },
-            color:{
-                pattern: ['#1ab394', '#BABABA']
-
-            }
-        });
-    })
+    // $("#ajaxform").submit();
 
 });
