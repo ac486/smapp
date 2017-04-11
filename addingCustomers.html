@@ -214,7 +214,7 @@ session_start();
                                 </div>
                             </div>
                             <div class="ibox-content">
-                                <form role="form" class="form-inline" id="cust_form" data-ajax="false">
+                                <form role="form" class="form-inline" id="cust_form" action="controller/addCust.php" method="post">
                                     <div class="form-group">
                                         <label for="firstName" class="sr-only">First Name</label>
                                         <input type="text" placeholder="First Name" id="firstName" class="form-control">
@@ -731,8 +731,8 @@ session_start();
 <!--edit this so that all forms will be able to upload-->
 <script type="text/javascript">
     submitForms = function(){
-        document.getElementById("form1").submit();
-        document.getElementById("form2").submit();
+        $("#cust_form").submit();
+        //document.getElementById("form2").submit();
 
     }
 
@@ -757,12 +757,6 @@ session_start();
 
             }
         });
-
-//
-//              $("#cust_form").on('submit',function (event) {
-//                 event.preventDefault();
-//
-//              });
 
     }
 
