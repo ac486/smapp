@@ -249,7 +249,7 @@ session_start();
                                     </div>
                                     <p></p>
                                     <hr>
-                                    <p> <!--START OF 12 MONTH USAGE INFO--> 12 Month Usage (Kw)</p>
+                                    <p> <!--START OF 12 MONTH USAGE INFO--> 12 Month Usage (Kw/day)</p>
                                     <div class="form-group">
                                         <label for="jan" class="sr-only">Avg Monthly Cost</label>
                                         <input type="value" placeholder="Jan" id="jan" class="form-control">
@@ -425,7 +425,7 @@ session_start();
                                 <table class="table table-bordered">
                                     <thead>
                                     <tr>
-                                        <th style="font-size: 13px;">Total Rate</th>
+                                        <th style="font-size: 13px;">Daily Average</th>
                                         <th style="font-size: 13px;">Annual Usage</th>
                                         <th style="font-size: 13px;">Annual Cost</th>
                                         <th style="font-size: 13px;">Monthly Cost</th>
@@ -710,6 +710,29 @@ session_start();
             <div class="submitbutton"> <!--javascript links all forms here to one submit button-->
                 <input type="button" class="btn btn-primary" value="Submit!" onclick="submitForms()" />
             </div>
+
+
+            <div class="row"> <!--Signature-->
+                <div class="col-lg-8" id="signature">
+                    <div class="ibox float-e-margins">
+                        <div class="ibox-title">
+                            <h5>Signature</h5>
+
+                        </div>
+                        <div class="ibox-content">
+                            <canvas id="signature-pad" class="signature-pad" width=400 height=200></canvas>
+                        </div>
+                        <div>
+                            <button id="save">Save</button>
+                            <button id="clear">Clear</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+
+
         </div> <!--wrapper div-->
     </div>
 
@@ -802,13 +825,14 @@ session_start();
         document.getElementById("sysSize").innerHTML = sysSize;
 
         panelSize = 300;
-        panelCount = Math.round(sysSize / panelSize);
+        panelCount = Math.ceil(sysSize / panelSize);
         document.getElementById("panCount").innerHTML = panelCount;
 
-        actualSize = panelCount * panelSize;
+        actualSize = (panelCount * panelSize) / 1000;
         document.getElementById("actSize").innerHTML = actualSize;
 
-        price = Math.round(actualSize) * 5000;
+        costPerWatt = 5;
+        price = Math.round(actualSize * 1000) * costPerWatt;
         price = price.toFixed(2);
         document.getElementById("price").innerHTML = price;
 
@@ -892,6 +916,10 @@ session_start();
 
 <!-- Morris demo data-->
 <script src="js/demo/morris-demo.js"></script>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/signature_pad/1.5.3/signature_pad.min.js"></script>
+
 
 
 </body>
