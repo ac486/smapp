@@ -22,6 +22,7 @@ session_start();
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
     <title>Sunmint | Create Account</title>
+    <link rel="icon" href="photos/sunmintfavicon.png" type="image/x-icon">
 
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="font-awesome/css/font-awesome.css" rel="stylesheet">
@@ -74,7 +75,7 @@ session_start();
                     <a href="viewCustomers.php"><i class="fa fa-table"></i> <span class="nav-label">View Customers</span></a>
                 </li>
                 <li>
-                    <a href="addCustomers.php"><i class="fa fa-table"></i> <span class="nav-label">Add Customers</span></a>
+                    <a href="addCustomers.php"><i class="fa fa-id-card"></i> <span class="nav-label">Add Customers</span></a>
                 </li>
 
             </ul>
@@ -104,16 +105,13 @@ session_start();
 
         <div class="row wrapper border-bottom white-bg page-heading">
             <div class="col-lg-10">
-                <h2>Static Tables</h2>
+                <h2>Create Account</h2>
                 <ol class="breadcrumb">
                     <li>
                         <a href="index.html">Home</a>
                     </li>
-                    <li>
-                        <a>Tables</a>
-                    </li>
                     <li class="active">
-                        <strong>Static Tables</strong>
+                        <strong>Create Account</strong>
                     </li>
                 </ol>
             </div>
@@ -239,6 +237,8 @@ session_start();
                                         <input type="value" placeholder="Zip Code" id="zip" class="form-control">
                                     </div>
                                     <p></p>
+                                    <hr>
+                                    <p> <!--Rate & escalation portion--> Usage Rate</p>
                                     <div class="form-group">
                                         <label for="utilRate" class="sr-only">Avg Monthly Cost</label>
                                         <input type="value" placeholder="Rate" id="utilRate" class="form-control">
