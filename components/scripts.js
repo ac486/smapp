@@ -128,7 +128,7 @@ $( document ).ready(function() {
                 }
             });
         e.preventDefault(); //STOP default action
-        e.unbind(); //unbind. to stop multiple form submit.
+        //e.unbind(); //unbind. to stop multiple form submit.
     });
 
     // $("#ajaxform").submit();
