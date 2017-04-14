@@ -121,18 +121,24 @@ $( document ).ready(function() {
                 data : {'customer':postData},
                 success:function(data, textStatus, jqXHR)
                 {
-                    console.log(data);
+                    $("#message").text("Congratulations. You are now energy freedom");
+                    $("#modalvav").attr("href","home.html");
+                    $("#myModal2").modal("toggle");
+
                 },
                 error: function(jqXHR, textStatus, errorThrown)
                 {
-                    console.log(errorThrown);
+                    //alert(errorThrown);
+                    $("#message").text("Something went wrong: " + errorThrown);
+                    $("#modalvav").attr("href","addingCustomers.html");
+                    $("#myModal2").modal("toggle");
                 }
             });
         e.preventDefault(); //STOP default action
         //e.unbind(); //unbind. to stop multiple form submit.
     });
 
-    // $("#ajaxform").submit();
+
 
     var signaturePad = new SignaturePad(document.getElementById('signature-pad'), {
         backgroundColor: 'rgba(255, 255, 255, 0)',
