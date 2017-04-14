@@ -1,11 +1,12 @@
 <?php
 //include ("../config/config.php");
-//$json_cust_list = $_POST['postData'];
-
-//$cust_list = json_decode($json_cust_list,true);
-//echo $cust_list;
-
-echo "hello world";
+if(isset($_POST['customer'])){
+    $json = $_POST['customer'];
+    var_dump(json_decode($json,true));
+}
+else {
+    echo "illegal post";
+}
 
 //file_put_contents("../models/dbModel.php",$cust_list);
 //redirect("../viewCustomers.html");
