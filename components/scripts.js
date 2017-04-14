@@ -124,6 +124,7 @@ $( document ).ready(function() {
                     $("#message").text("Congratulations. You are now energy freedom");
                     $("#modalvav").attr("href","home.html");
                     $("#myModal2").modal("toggle");
+                    console.log(data);
 
                 },
                 error: function(jqXHR, textStatus, errorThrown)
