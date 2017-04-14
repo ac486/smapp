@@ -110,21 +110,22 @@ $( document ).ready(function() {
 
     $("#cust_form").submit(function(e)
     {
-    	console.log("submiting");
-        var postData = $(this).serializeArray();
+    	console.log("SUBMITING FORM");
+        var postData = JSON.stringify($(this).serializeArray());
         var formURL = $(this).attr("action");
+        console.log(postData);
         $.ajax(
             {
                 url : formURL,
                 type: "POST",
-                data : postData,
+                data : {'customer':postData},
                 success:function(data, textStatus, jqXHR)
                 {
-                    //data: return data from server
+                    console.log(data);
                 },
                 error: function(jqXHR, textStatus, errorThrown)
                 {
-                    //if fails
+                    console.log(errorThrown);
                 }
             });
         e.preventDefault(); //STOP default action
