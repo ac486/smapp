@@ -544,6 +544,19 @@ session_start();
                                 </div>
                             </div>
 
+                            <div class="col-lg-6">
+                                <div class="ibox float-e-margins">
+                                    <div class="ibox-title">
+                                        <h5>Solar Production</h5>
+                                    </div>
+                                    <div class="ibox-content">
+                                        <div>
+                                            <canvas id="barChart1" height="140"></canvas>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
 
 
                         </div>
@@ -800,6 +813,39 @@ session_start();
 
     }
 
+
+    usageAndProduction = function() {
+        var barData = {
+            labels: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
+            datasets: [
+                {
+                    label: "Usage",
+                    backgroundColor: 'rgb(66, 134, 244)',
+                    pointBorderColor: "#fff",
+                    data: [65, 59, 80, 81, 56, 55, 40, 80, 80, 80, 78, 85]
+                },
+                {
+                    label: "Production",
+                    backgroundColor: 'rgb(255, 255, 0)',
+                    borderColor: "rgba(26,179,148,0.7)",
+                    pointBackgroundColor: "rgba(26,179,148,1)",
+                    pointBorderColor: "#fff",
+                    data: [28, 48, 40, 19, 86, 27, 90, 40, 90, 85, 70, 50, 40]
+                }
+            ]
+        };
+
+        var barOptions = {
+            responsive: true
+        };
+
+
+        var ctx2 = document.getElementById("barChart1").getContext("2d");
+        new Chart(ctx2, {type: 'bar', data: barData, options: barOptions});
+    };
+
+
+
     costOfDoingNothingGraph = function(monthly,yearly,tenYears,twentyFiveYears) {
         Morris.Donut({
             element: 'morris-donut-chart',
@@ -880,6 +926,8 @@ session_start();
         var annual = "Annual";
         var monthly = "Monthly";
         SRECGraph(SRECValue, offset);
+
+        usageAndProduction();
 
         $('#form3').removeClass('hide');
         costOfDoingNothingGraph(300,500,1000,2000);
