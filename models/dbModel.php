@@ -1,5 +1,7 @@
 <?php
 include ("../config/config.php");
+session_start();
+
 // model class
 class dbModel
  {
@@ -8,11 +10,6 @@ class dbModel
 	/*-----------------------------------------------*/
 
 
-	private $bottom_text = 0;
-	private $top_text = 1;
-	private $homeslider ='hil_homeslider';
-	private $order_by_id_asc = 'ORDER BY id ASC';
-	private $order_by_id_desc = 'ORDER BY id DESC';
   private $logout = 0;
   private $login = 1;
   //tables
@@ -41,6 +38,7 @@ class dbModel
 		$_SESSION['user']['user_name']= '';
     $_SESSION['user']['role']= '';
     $_SESSION['user']['user_id']= '';
+
     session_start();
     session_unset();
     session_destroy();
@@ -50,29 +48,67 @@ class dbModel
 
 
 
-	// user login
+  // user login
      public function userLogin($aUser){
 	   global  $con;
      $email = $aUser['email'];
      $password = $aUser['password'];
 
-     $queryStr=" SELECT id,name,role from tbl_user where email= '$email' and password = '$password' ";
+     $queryStr=" SELECT id,name,status,role from tbl_user where email= '$email' and password = '$password' ";
 
 		 $queryExi = mysqli_query($con,$queryStr);
 	   $data = 0;
 	  if(mysqli_num_rows($queryExi) > 0) {
       $user  = mysqli_fetch_assoc($queryExi);
 
-			session_start();
-      $_SESSION['user']['user_name']= $user['name'];
-      $_SESSION['user']['role']= $user['role'];
-      $_SESSION['user']['user_id']= $user['id'];
+      if($user['status'] == '0') {//not currently logged in
+		$usr_id = $user['id'];
+        $queryStr=" UPDATE tbl_user SET `status` = '$login' WHERE `tbl_user`.`id` = '$usr_id' ";
+        $queryExi = mysqli_query($con,$queryStr);
 
+        $_SESSION['user']['user_name'] = $user['name'];
+        $_SESSION['user']['role'] = $user['role'];
+        $_SESSION['user']['user_id'] = $user['id'];
+        $data = true;
 
-			$data = true;
+      }
+      else {
+        $data = false;
+      }
+
 		}
 		return $data;
 	}
+
+
+  public function newSystem($aSystem){
+    global $con;
+    $yr_usage = $aSystem["yr_usage"];
+
+
+  }
+
+  public function newCustomer($aCustomer){
+    global $con;
+    $name = $aCustomer['cust_name'];
+    $email = $aCustomer['cust_email'];
+    $phone = $aCustomer['cust_phone'];
+    $address = $aCustomer['cust_address'];
+    $city = $aCustomer['cust_city'];
+    $state = $aCustomer['cust_state'];
+    $zip = $aCustomer['cust_zip'];
+    $usage = $aCustomer['cust_usg_annual'];
+    $cost = $aCustomer['cust_cost_annual'];
+    $provider = $aCustomer['cust_prov'];
+    $rep = $_SESSION['user']['user_id'];
+
+
+   $queryStr=" INSERT INTO tbl_customer (`id`, `name`, `address`, `state`, `zipcode`, `city`, `phone1`, `email`, `provider`, `yr_usage`, `yr_bill`, `status`, `rep`) VALUES (NULL, '$name', '$address', '$state', '$zip', '$city', '$phone', '$email', '$provider', '$usage', '$cost', '0', '$rep')";
+   $queryExi = mysqli_query($con,$queryStr);
+
+   return true;
+  }
+
 
 
 

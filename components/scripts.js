@@ -11,7 +11,7 @@
 			   if(data!=''){
 
 			     if(data == 1){
-					 redirect('/home.php');
+					 redirect('/addCustomers.php');
 					 return true;
 
 				  }else{
@@ -43,6 +43,164 @@
 		  return base_url;
 
 		}
+
+
+		function submitForms(){
+
+			jQuery.post(baseUrl()+"/ajaxhandler/ajaxhandler.php", {
+					ajax_action: 'new_customer',
+					cust_name : (document.getElementById("cust_fn").value + " " + document.getElementById("cust_ln").value),
+					cust_email : document.getElementById("cust_email").value,
+					cust_phone : document.getElementById("cust_phone").value,
+					cust_address : document.getElementById("cust_street").value,
+					cust_city : document.getElementById("cust_city").value,
+					cust_state : document.getElementById("cust_state").value,
+					cust_zip : document.getElementById("cust_zip").value,
+					cust_usg_annual : document.getElementById("cust_avg_annual").value,
+					cust_cost_annual : document.getElementById("cur_annual_cost").value,
+					cust_prov : document.getElementById("cust_prov").value,
+				},
+						function (data) {
+				 if(data!=''){
+
+					 if(data == 1){
+					 redirect('/customerRegistered.php');
+					 return true;
+
+					}else{
+					alert('Something went wrong, try again.');
+					 return false;
+					}
+				}
+				else {
+				 return false;
+			 }
+			});
+
+
+
+		}
+
+	function generateInfo(){
+
+		if  (document.getElementById("monthly").checked){
+			jan =  document.getElementById("jan").value;
+			feb =  document.getElementById("feb").value;
+			mar =  document.getElementById("mar").value;
+			apr =  document.getElementById("apr").value;
+			may =  document.getElementById("may").value;
+			jun =  document.getElementById("jun").value;
+			jul =  document.getElementById("jul").value;
+			aug =  document.getElementById("aug").value;
+			sep =  document.getElementById("sep").value;
+			oct =  document.getElementById("oct").value;
+			nov =  document.getElementById("nov").value;
+			dec =  document.getElementById("dec").value;
+
+			monthlyAvg =  (Number(jan) + Number(feb) + Number(mar) + Number(apr) +
+							 Number(may) + Number(jun) + Number(jul) + Number(aug) +
+							 Number(sep) + Number(oct) + Number(nov) + Number(dec))/12;
+			monthlyAvg = monthlyAvg.toFixed(2);
+
+			annUsage = monthlyAvg * 12;
+			annUsage = annUsage.toFixed(2);
+
+
+	}
+	else {
+		annUsage =  parseInt(document.getElementById("cust_avg_annual").value);
+		annUsage = annUsage.toFixed(2);
+		monthlyAvg = (annUsage/12).toFixed(2);
+	}
+
+	utilRate = document.getElementById("cust_rate").value;
+	document.getElementById("totRate").innerHTML = monthlyAvg;
+		document.getElementById("annUse").innerHTML = annUsage;
+
+
+		annCost = annUsage * utilRate;
+		annCost = annCost.toFixed(2);
+		document.getElementById("annCost").innerHTML = annCost;
+		document.getElementById("cur_annual_cost").innerHTML = annCost;
+
+		document.getElementById("cur_annual_usg").innerHTML = annUsage;
+
+
+		monCost = annCost / 12;
+		monCost = monCost.toFixed(2);
+		document.getElementById("monCost").innerHTML = monCost;
+		document.getElementById("cur_avgmonthly_cost").value = monCost;
+
+		conversionRate = 1.2;
+		sysSize = annUsage / conversionRate; //DC production
+		sysSize = sysSize.toFixed(2);
+		document.getElementById("sysSize").innerHTML = sysSize;
+
+		panelSize = 300;
+		panelCount = Math.ceil(sysSize / panelSize); //round this up
+		document.getElementById("panCount").innerHTML = panelCount;
+
+		actualSize = panelCount * panelSize; //round this up
+		document.getElementById("actSize").innerHTML = actualSize;
+
+		price = Math.round((actualSize) * 5000)/1000;
+		price = price.toFixed(2);
+		document.getElementById("price").innerHTML = price;
+
+		//drop down to edit
+		pvMakeModel = 'Silfab 300w';
+		document.getElementById("PVMakeModel").innerHTML = pvMakeModel;
+
+		inverter = 'Solar Edge';
+		document.getElementById("Inverter").innerHTML = inverter;
+
+		EngElec = 'Ryan Inc';
+		document.getElementById("LicEngElec").innerHTML = EngElec;
+
+		document.getElementById("cur_annual_usg").innerHTML = annUsage;
+		document.getElementById("cur_annual_cost").value = annCost;
+
+
+
+/*
+0.856055556
+1.002413793
+1.433209877
+1.584551282
+1.829358974
+1.247837838
+1.097777778
+0.823333333
+0.649694444
+1.025808081
+0.7184375
+0.735977011
+*/
+		var annualCost = annCost;
+		var today = new Date();
+		var project_25 = [{period:today.getFullYear(),Cost:annualCost}];
+		for(var i = 1; i <= 25;i++) {
+			annualCost = annualCost*(1+($("#market_escal").val()/100));
+			var point = {period:+today.getFullYear()+i,Cost:annualCost};
+			project_25.push(point);
+		}
+
+
+		Morris.Area({
+			element: 'nothing_graph',
+			data: project_25,
+			xkey: ['period'],
+			ykeys: ['Cost'],
+			labels: ['AnnualPayment'],
+			xlabels: ['day'],
+			pointSize: 10,
+			hideHover: 'auto',
+			resize: true,
+			lineColors: ['#ff0000'],
+			lineWidth:3,
+			pointSize:10,
+		});
+	}
 
 
 
@@ -81,84 +239,71 @@ $( document ).ready(function() {
 
 	});
 
-	$("#new_lead_btn").click(function(){
-		 $("#form1").toggle();
+
+	$("#logout_btn").click(function(){
+		jQuery.post(baseUrl()+"/ajaxhandler/ajaxhandler.php", {
+				ajax_action: 'user_logout'
+			},
+					function (data) {
+
+				 redirect();
+		});
+
 	});
 
-	$("#new_lead_btn2").click(function(){
-		$("#form2").toggle();
+//Customer Proposal
+
+
+
+	$("#presentation_btn").click(function(){
+		 $("#solar_present").toggle();
+	});
+
+	$("#cust_input_btn").click(function(){
+		$("#cust_info_form").toggle();
 	});
 
 
-	$("#new_lead_btn3").click(function(){
-		$("#form3").toggle();
+	$("#cust_cur_btn").click(function(){
+		$("#usg_form").toggle();
 	});
 
-    $("#new_lead_btn4").click(function(){
-        $("#form4").toggle();
-    });
 
-    $("#new_lead_btn5").click(function(){
-        $("#form5").toggle();
+    $("#sys_info_btn").click(function(){
+        $("#sys_info_from").toggle();
     });
 
 
-    $("#new_lead_btn6").click(function(){
-        $("#form6").toggle();
+    $("#cost_brkdown_btn").click(function(){
+        $("#cost_brkdown_form").toggle();
     });
-
-
-    $("#cust_form").submit(function(e)
-    {
-    	console.log("SUBMITING FORM");
-        var postData = JSON.stringify($(this).serializeArray());
-        var formURL = $(this).attr("action");
-        console.log(postData);
-        $.ajax(
-            {
-                url : formURL,
-                type: "POST",
-                data : {'customer':postData},
-                success:function(data, textStatus, jqXHR)
-                {
-                    $("#message").text("Congratulations. You are now energy freedom");
-                    $("#modalvav").attr("href","home.html");
-                    $("#myModal2").modal("toggle");
-                    console.log(data);
-
-                },
-                error: function(jqXHR, textStatus, errorThrown)
-                {
-                    //alert(errorThrown);
-                    $("#message").text("Something went wrong: " + errorThrown);
-                    $("#modalvav").attr("href","addingCustomers.html");
-                    $("#myModal2").modal("toggle");
-                }
-            });
-        e.preventDefault(); //STOP default action
-        //e.unbind(); //unbind. to stop multiple form submit.
-    });
+		$("#incentive_btn").click(function(){
+				$("#incentive_form").toggle();
+		});
 
 
 
-    var signaturePad = new SignaturePad(document.getElementById('signature-pad'), {
-        backgroundColor: 'rgba(255, 255, 255, 0)',
-        penColor: 'rgb(0, 0, 0)'
-    });
-    var saveButton = document.getElementById('save');
-    var cancelButton = document.getElementById('clear');
+		$("#solar_present").toggle();
+		$("#cust_info_form").toggle();
+		$("#usg_form").toggle();
+    $("#cost_brkdown_form").toggle();
+		$("#sys_info_from").toggle();
+		$("#incentive_form").toggle();
 
-    saveButton.addEventListener('click', function (event) {
-        var data = signaturePad.toDataURL('image/png');
 
-// Send data to server instead...
-        window.open(data);
-    });
+		$("#generateInfo_btn").click(function(){
+			 generateInfo();
+		});
 
-    cancelButton.addEventListener('click', function (event) {
-        signaturePad.clear();
-    });
 
+		$("#monthly").click(function(){
+				if(document.getElementById("monthly").checked){
+					$("#monthly_inputs").removeClass("hide");
+				}
+				else{
+					$("#monthly_inputs").addClass("hide");
+				}
+		});
 
 
 });
