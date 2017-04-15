@@ -6,14 +6,16 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Sunmint | Database</title>
+    <title>INSPINIA | FooTable</title>
 
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="font-awesome/css/font-awesome.css" rel="stylesheet">
-    <link href="css/plugins/iCheck/custom.css" rel="stylesheet">
+
+    <!-- FooTable -->
+    <link href="css/plugins/footable/footable.core.css" rel="stylesheet">
+
     <link href="css/animate.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
-    <link rel="icon" href="photos/sunmintfavicon.png" type="image/x-icon">
 
 </head>
 
@@ -43,10 +45,10 @@
                 </li>
 
                 <li>
-                    <a href="viewCustomers.php"><i class="fa fa-table"></i> <span class="nav-label">View Customers</span></a>
+                    <a href="viewCustomers.html"><i class="fa fa-table"></i> <span class="nav-label">View Customers</span></a>
                 </li>
                 <li>
-                    <a href="addCustomers.php"><i class="fa fa-id-card"></i> <span class="nav-label">Add Customers</span></a>
+                    <a href="addingCustomers.html"><i class="fa fa-table"></i> <span class="nav-label">Add Customers</span></a>
                 </li>
 
             </ul>
@@ -54,7 +56,9 @@
         </div>
     </nav>
 
+
     <div id="page-wrapper" class="gray-bg">
+
         <div class="row border-bottom">
             <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
                 <div class="navbar-header">
@@ -66,7 +70,7 @@
                     </form>
                 </div>
                 <ul class="nav navbar-top-links navbar-right">
-                    
+
                     <li>
                         <a href="login.html">
                             <i class="fa fa-sign-out"></i> Log out
@@ -76,6 +80,7 @@
 
             </nav>
         </div>
+
         <div class="row wrapper border-bottom white-bg page-heading">
             <div class="col-lg-10">
                 <h2>View Accounts</h2>
@@ -92,79 +97,16 @@
 
             </div>
         </div>
+
+
         <div class="wrapper wrapper-content animated fadeInRight">
-           <div class="row">
-                <div class="col-lg-8">
-                    <div class="ibox float-e-margins">
-                        <div class="ibox-title">
-                            <h5>Customer List </h5>
-                            <div class="ibox-tools">
-                                <a class="collapse-link">
-                                    <i class="fa fa-chevron-up"></i>
-                                </a>
-                                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                                    <i class="fa fa-wrench"></i>
-                                </a>
-                                <ul class="dropdown-menu dropdown-user">
-                                    <li><a href="#">Config option 1</a>
-                                    </li>
-                                    <li><a href="#">Config option 2</a>
-                                    </li>
-                                </ul>
-                                <a class="close-link">
-                                    <i class="fa fa-times"></i>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="ibox-content">
 
-                            <table class="table table-bordered table-hover">
-                                <thead>
-                                <tr>
-                                    <th>#</th>
-                                    <th>First Name</th>
-                                    <th>Last Name</th>
-                                    <th>Phone</th>
-                                    <th>Address</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                <tr id="row1">
-                                    <td>1</td>
-                                    <td>Mark</td>
-                                    <td>Otto</td>
-                                    <td>@mdo</td>
-                                    <td>@twitter</td>
-                                </tr>
-                                <tr>
-                                    <td>2</td>
-                                    <td>Jacob</td>
-                                    <td>Thornton</td>
-                                    <td>@fat</td>
-                                    <td>@twitter</td>
-                                </tr>
-                                <tr>
-                                    <td>3</td>
-                                    <td>Larry</td>
-                                    <td>the Bird</td>
-                                    <td>@twitter</td>
-                                    <td>@twitter</td>
-                                </tr>
-
-                                </tbody>
-                            </table>
-
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row hide" id="customerView">
+            <div class="row">
                 <div class="col-lg-12">
                     <div class="ibox float-e-margins">
                         <div class="ibox-title">
-                            <h5>Customer</h5>
+                            <h5>Customers List</h5>
+
                             <div class="ibox-tools">
                                 <a class="collapse-link">
                                     <i class="fa fa-chevron-up"></i>
@@ -185,65 +127,82 @@
                         </div>
                         <div class="ibox-content">
 
-                            <table class="table table-bordered">
+                            <table class="footable table table-stripped toggle-arrow-tiny">
                                 <thead>
                                 <tr>
-                                    <th>#</th>
-                                    <th>First Name</th>
-                                    <th>Last Name</th>
-                                    <th>Phone</th>
-                                    <th>Address</th>
-                                    <th>Address</th>
-                                    <th>Address</th>
-                                    <th>Address</th>
-                                    <th>Address</th>
-                                    <th>Address</th>
-                                    <th>Address</th>
-                                    <th>Address</th>
-                                    <th>Address</th>
-                                    <th>Address</th>
-                                    <th>Address</th>
-                                    <th>Address</th>
-                                    <th>Address</th>
-                                    <th>Address</th>
-                                    <th>Address</th>
-                                    <th>Status</th>
+
+                                    <th data-toggle="true">Customer Name</th>
+                                    <th>Representative</th>
+                                    <th>City</th>
+                                    <th data-hide="all">Address</th>
+                                    <th data-hide="all">Process</th>
+                                    <th data-hide="all">System Info</th>
+                                    <th data-hide="all">Application date</th>
+                                    <th>Process</th>
                                 </tr>
                                 </thead>
                                 <tbody>
+
+
                                 <tr>
-                                    <td>1</td>
-                                    <td>Mark</td>
-                                    <td>Otto</td>
-                                    <td>@mdo</td>
-                                    <td>@twitter</td>
+                                    <td>John Cooper</td>
+                                    <td>Alice Jackson</td>
+                                    <td>Newark</td>
+                                    <td>Edison Nj</td>
+                                    <td><span class="pie">Application</span></td>
+                                    <td> 100 watts</td>
+                                    <td>Jul 16, 2013</td>
+                                    <td>Approve</td>
                                 </tr>
                                 <tr>
-                                    <td>2</td>
-                                    <td>Jacob</td>
-                                    <td>Thornton</td>
-                                    <td>@fat</td>
-                                    <td>@twitter</td>
+                                    <td>Steve Davids</td>
+                                    <td>Alice Jackson</td>
+                                    <td>Edison</td>
+                                    <td>Edison Nj</td>
+                                    <td><span class="pie">Application</span></td>
+                                    <td> 100 watts</td>
+                                    <td>Jul 16, 2013</td>
+                                    <td>Approve</td>
                                 </tr>
                                 <tr>
-                                    <td>3</td>
-                                    <td>Larry</td>
-                                    <td>the Bird</td>
-                                    <td>@twitter</td>
-                                    <td>@twitter</td>
+                                    <td>Brian Williams</td>
+                                    <td>Alice Jackson</td>
+                                    <td>South Orange</td>
+                                    <td>Edison Nj</td>
+                                    <td><span class="pie">Application</span></td>
+                                    <td> 100 watts</td>
+                                    <td>Jul 16, 2013</td>
+                                    <td>Application</td>
+                                </tr>
+                                <tr>
+                                    <td>Mohammed Hassan</td>
+                                    <td>Alice Jackson</td>
+                                    <td>Roselle</td>
+                                    <td>Edison Nj</td>
+                                    <td><span class="pie">Application</span></td>
+                                    <td> 100 watts</td>
+                                    <td>Jul 16, 2013</td>
+                                    <td>Install</td>
                                 </tr>
 
                                 </tbody>
+                                <tfoot>
+                                <tr>
+                                    <td colspan="5">
+                                        <ul class="pagination pull-right"></ul>
+                                    </td>
+                                </tr>
+                                </tfoot>
                             </table>
 
                         </div>
                     </div>
                 </div>
             </div>
+
         </div>
-
-
     </div>
+
 </div>
 
 
@@ -254,30 +213,22 @@
 <script src="js/plugins/metisMenu/jquery.metisMenu.js"></script>
 <script src="js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
 
-<!-- Peity -->
-<script src="js/plugins/peity/jquery.peity.min.js"></script>
+<!-- FooTable -->
+<script src="js/plugins/footable/footable.all.min.js"></script>
 
 <!-- Custom and plugin javascript -->
 <script src="js/inspinia.js"></script>
 <script src="js/plugins/pace/pace.min.js"></script>
 
-<!-- iCheck -->
-<script src="js/plugins/iCheck/icheck.min.js"></script>
-
-<!-- Peity -->
-<script src="js/demo/peity-demo.js"></script>
-
+<!-- Page-Level Scripts -->
 <script>
-    $(document).ready(function(){
-        $('.i-checks').iCheck({
-            checkboxClass: 'icheckbox_square-green',
-            radioClass: 'iradio_square-green',
-        });
+    $(document).ready(function() {
 
-        $("#row1").click(function () {
-            $("#customerView").removeClass("hide");
-        });
+        $('.footable').footable();
+        $('.footable2').footable();
+
     });
+
 </script>
 
 </body>
