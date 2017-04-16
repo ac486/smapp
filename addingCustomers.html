@@ -148,7 +148,7 @@ session_start();
 
             <div class="ibox float-e-margins tooltip-demo">
 
-                <button class="btn btn-primary btn-info dim btn-large-dim" type="button" id="new_lead_btn" data-toggle="tooltip" data-placement="top" title="Customer Information"><i class="fa fa-clock-o"></i></button> <!--customer info button-->
+              <button class="btn btn-primary btn-info dim btn-large-dim" type="button" id="new_lead_btn" data-toggle="tooltip" data-placement="top" title="Customer Information"><i class="fa fa-clock-o"></i></button> <!--customer info button-->
               <button class="btn btn-primary btn-warning dim btn-large-dim" type="button" id="new_lead_btn2" data-toggle="tooltip" data-placement="top" title="Presentation"><i class="fa fa-leaf"></i></button><!--presentation-->
               <button class="btn btn-primary dim btn-large-dim" type="button" id="new_lead_btn3" data-toggle="tooltip" data-placement="top" title="Cost of Doing Nothing"><i class="fa fa-handshake-o"></i></button><!--cost of doing nothing-->
               <button class="btn btn-primary btn-success dim btn-dim btn-large-dim" type="button" id="new_lead_btn4" data-toggle="tooltip" data-placement="top" title="System Information"><i class="fa fa-usd"></i></button><!--your system info-->
@@ -420,8 +420,33 @@ session_start();
                                                 </div>
                                                 &emsp;&emsp;
 
+
                                                 <br>
 
+                                                <div class="form-group">
+                                                  Estimated Annual Production
+                                                  <div id ="estAnnProd">Estimated Annual Production</div><br>
+                                                </div>
+                                                &emsp;&emsp;
+                                                 <div class="form-group">
+                                                  SREC Over 15 Years
+                                                  <div id ="SREC15yr">SREC 15 Years</div><br>
+                                                </div>
+                                                &emsp;&emsp;
+
+                                                <br>
+
+                                                <div class="form-group">
+                                                  SREC Annual
+                                                  <div id ="SRECann">SREC Annual</div><br>
+                                                </div>
+                                                &emsp;&emsp;
+
+                                                <div class="form-group">
+                                                  SREC Monthly
+                                                  <div id ="SRECmon">SREC Monthly</div><br>
+                                                </div>
+                                                &emsp;&emsp;
 
                                               </body>
                                               </form>
@@ -659,6 +684,21 @@ session_start();
 
           EngElec = 'Ryan Inc';
           document.getElementById("LicEngElec").innerHTML = EngElec;
+
+          convRate = 1.2;
+          estAnnProd = actualSize * convRate;
+          document.getElementById("estAnnProd").innerHTML = estAnnProd;
+
+          lowRate = 185;
+          numOfyears = 15;
+          SREC15yr = (estAnnProd / 1000) * lowRate * numOfyears;
+          document.getElementById("SREC15yr").innerHTML = SREC15yr;
+
+          SRECannual = SREC15yr / 12; //this should be 15 not 12
+          document.getElementById("SRECann").innerHTML = SRECannual;
+
+          SRECmon = SRECannual / 15; //this should be 12 not 15
+          document.getElementById("SRECmon").innerHTML = SRECmon;
         }
           </script>
 
