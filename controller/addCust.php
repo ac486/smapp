@@ -1,11 +1,14 @@
 <?php
-include ("../config/config.php");
+//include ("../config/config.php");
+if(isset($_POST['customer'])){
+    $json = $_POST['customer'];
+    var_dump(json_decode($json,true));
+}
+else {
+    echo "illegal post";
+}
 
-$json_cust_list = file_get_contents("php://input");
-
-$cust_list = json_decode($json_cust_list,true);
-
-file_put_contents("../models/addCust.php",$cust_list);
-redirect("../customerView.html");
+//file_put_contents("../models/dbModel.php",$cust_list);
+//redirect("../viewCustomers.html");
 
 ?>

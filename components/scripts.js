@@ -107,4 +107,58 @@ $( document ).ready(function() {
         $("#form6").toggle();
     });
 
+
+    $("#cust_form").submit(function(e)
+    {
+    	console.log("SUBMITING FORM");
+        var postData = JSON.stringify($(this).serializeArray());
+        var formURL = $(this).attr("action");
+        console.log(postData);
+        $.ajax(
+            {
+                url : formURL,
+                type: "POST",
+                data : {'customer':postData},
+                success:function(data, textStatus, jqXHR)
+                {
+                    $("#message").text("Congratulations. You are now energy freedom");
+                    $("#modalvav").attr("href","home.html");
+                    $("#myModal2").modal("toggle");
+                    console.log(data);
+
+                },
+                error: function(jqXHR, textStatus, errorThrown)
+                {
+                    //alert(errorThrown);
+                    $("#message").text("Something went wrong: " + errorThrown);
+                    $("#modalvav").attr("href","addingCustomers.html");
+                    $("#myModal2").modal("toggle");
+                }
+            });
+        e.preventDefault(); //STOP default action
+        //e.unbind(); //unbind. to stop multiple form submit.
+    });
+
+
+
+    var signaturePad = new SignaturePad(document.getElementById('signature-pad'), {
+        backgroundColor: 'rgba(255, 255, 255, 0)',
+        penColor: 'rgb(0, 0, 0)'
+    });
+    var saveButton = document.getElementById('save');
+    var cancelButton = document.getElementById('clear');
+
+    saveButton.addEventListener('click', function (event) {
+        var data = signaturePad.toDataURL('image/png');
+
+// Send data to server instead...
+        window.open(data);
+    });
+
+    cancelButton.addEventListener('click', function (event) {
+        signaturePad.clear();
+    });
+
+
+
 });
