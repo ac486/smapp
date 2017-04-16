@@ -46,6 +46,36 @@ session_start();
 
 </head>
 
+<style>
+#circle1 {
+	width: 100px;
+	height: 100px;
+	background: red;
+	-moz-border-radius: 50px;
+	-webkit-border-radius: 50px;
+	border-radius: 50px;
+  display: inline-block;
+}
+#circle2 {
+  width: 150px;
+  height: 150px;
+  background: red;
+  -moz-border-radius: 75px;
+  -webkit-border-radius: 75px;
+  border-radius: 75px;
+  display: inline-block;
+}
+#circle3 {
+  width: 200px;
+  height: 200px;
+  background: red;
+  -moz-border-radius: 100px;
+  -webkit-border-radius: 100px;
+  border-radius: 100px;
+  display: inline-block;
+}
+</style>
+
 <body>
 <div id="wrapper">
     <!-- Side nav bar -->
@@ -386,11 +416,10 @@ session_start();
                                 </div>
 
                             </div>
-
                             <div class="ibox-content">
-                                <div id="morris-donut-chart"></div>
-                                <div id="morris-donut-chart2"></div>
-                                <div id="morris-donut-chart3"></div>
+                              <div id="circle1">Yearly</div>
+                              <div id="circle2">10 yr</div>
+                              <div id="circle3">25 yr</div>
                             </div>
                         </div>
 
@@ -604,9 +633,15 @@ session_start();
                             </div>
                         </div>
                         <div class="ibox-content">
-                            <form role="form" class="form-inline">
-
-                            </form>
+                          <br><br><br><br><br><br><br><br><br><br><br><br>
+                          <h5>Signature</h5>
+                          <br><br><br><br>
+                            <canvas id="signature-pad" class="signature-pad" width=400px height=200px ></canvas>
+                        </div>
+                        <div>
+                            <button id="save">Save</button>
+                            <button id="clear">Clear</button>
+                        </div>
                         </div>
                     </div>
                 </div>
@@ -751,8 +786,8 @@ session_start();
 
 
 
-
-            <div class="row"> <!--Signature-->
+<!-- moved to signature pad to last tab
+            <div class="row">
                 <div class="col-lg-8" id="signature">
                     <div class="ibox float-e-margins">
                         <div class="ibox-title">
@@ -770,6 +805,8 @@ session_start();
                 </div>
 
             </div>
+
+-->
 
 
 
