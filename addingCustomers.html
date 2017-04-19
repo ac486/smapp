@@ -851,36 +851,6 @@ session_start();
     }
 
 
-    usageAndProduction = function() {
-        var barData = {
-            labels: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
-            datasets: [
-                {
-                    label: "Usage",
-                    backgroundColor: 'rgb(66, 134, 244)',
-                    pointBorderColor: "#fff",
-                    data: [65, 59, 80, 81, 56, 55, 40, 80, 80, 80, 78, 85]
-                },
-                {
-                    label: "Production",
-                    backgroundColor: 'rgb(255, 255, 0)',
-                    borderColor: "rgba(26,179,148,0.7)",
-                    pointBackgroundColor: "rgba(26,179,148,1)",
-                    pointBorderColor: "#fff",
-                    data: [28, 48, 40, 19, 86, 27, 90, 40, 90, 85, 70, 50, 40]
-                }
-            ]
-        };
-
-        var barOptions = {
-            responsive: true
-        };
-
-
-        var ctx2 = document.getElementById("barChart1").getContext("2d");
-        new Chart(ctx2, {type: 'bar', data: barData, options: barOptions});
-    };
-
 
 
     costOfDoingNothingGraph = function(monthly,yearly,tenYears,twentyFiveYears) {
@@ -954,6 +924,55 @@ session_start();
 
         EngElec = 'Ryan Inc';
         document.getElementById("LicEngElec").innerHTML = EngElec;
+
+
+        jan_M = jan *31;
+        feb_M = feb * 28;
+        mar_M = mar * 31;
+        apr_M = apr * 30;
+        may_M = may * 31;
+        jun_M = jun * 30;
+        jul_M = jul * 31;
+        aug_M = aug * 31;
+        sep_M = sep * 30;
+        oct_M = oct * 31;
+        nov_M = nov * 30;
+        dec_M = dec * 31;
+
+
+        usageAndProduction = function() {
+            var barData = {
+                labels: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
+                datasets: [
+                    {
+                        label: "Usage",
+                        backgroundColor: 'rgb(66, 134, 244)',
+                        pointBorderColor: "#fff",
+                        data: [jan_M, feb_M, mar_M, apr_M, may_M, jun_M, jul_M, aug_M, sep_M, oct_M, nov_M, dec_M]
+                    },
+                    {
+                        label: "Production",
+                        backgroundColor: 'rgb(255, 255, 0)',
+                        borderColor: "rgba(26,179,148,0.7)",
+                        pointBackgroundColor: "rgba(26,179,148,1)",
+                        pointBorderColor: "#fff",
+                        data: [jan_M*0.856055556, feb_M*1.002413793, mar_M*1.433209877, apr_M*1.584551282, may_M*1.629358974, jun_M*1.747837838, jul_M*1.897777778, aug_M*1.923333333, sep_M*1.649694444, oct_M*1.025808081, nov_M*0.7184375, dec_M*0.735977011]
+                    }
+                ]
+            };
+
+            var barOptions = {
+                responsive: true
+            };
+
+
+            var ctx2 = document.getElementById("barChart1").getContext("2d");
+            new Chart(ctx2, {type: 'bar', data: barData, options: barOptions});
+        };
+
+
+
+
 
 
         $("#form4").removeClass('hide').toggle();
