@@ -61,20 +61,11 @@ class dbModel
 	  if(mysqli_num_rows($queryExi) > 0) {
       $user  = mysqli_fetch_assoc($queryExi);
 
-      if($user['status'] == '0') {//not currently logged in
-		$usr_id = $user['id'];
-        $queryStr=" UPDATE tbl_user SET `status` = '$login' WHERE `tbl_user`.`id` = '$usr_id' ";
-        $queryExi = mysqli_query($con,$queryStr);
 
         $_SESSION['user']['user_name'] = $user['name'];
         $_SESSION['user']['role'] = $user['role'];
         $_SESSION['user']['user_id'] = $user['id'];
         $data = true;
-
-      }
-      else {
-        $data = false;
-      }
 
 		}
 		return $data;
@@ -106,7 +97,18 @@ class dbModel
    $queryStr=" INSERT INTO tbl_customer (`id`, `name`, `address`, `state`, `zipcode`, `city`, `phone1`, `email`, `provider`, `yr_usage`, `yr_bill`, `status`, `rep`) VALUES (NULL, '$name', '$address', '$state', '$zip', '$city', '$phone', '$email', '$provider', '$usage', '$cost', '0', '$rep')";
    $queryExi = mysqli_query($con,$queryStr);
 
-   return true;
+   $queryStrId = " SELECT id from tbl_customer where email='$email' AND address='$address'";
+   $queryExi = mysqli_query($con,$queryStrId);
+
+   if(mysqli_num_rows($queryExi) > 0) {
+     $id  = mysqli_fetch_assoc($queryExi);
+     return $id['id'];
+   }
+   else {
+     return false;
+   }
+
+
   }
 
 

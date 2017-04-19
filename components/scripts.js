@@ -61,21 +61,17 @@
 					cust_prov : document.getElementById("cust_prov").value,
 				},
 						function (data) {
-				 if(data!=''){
+				 if(data!='' ){
 
-					 if(data == 1){
-					 redirect('/customerRegistered.php');
-					 return true;
+					 alert(data);
 
-					}else{
+					}
+					else{
 					alert('Something went wrong, try again.');
 					 return false;
 					}
 				}
-				else {
-				 return false;
-			 }
-			});
+			);
 
 
 
@@ -97,15 +93,14 @@
 			nov =  document.getElementById("nov").value;
 			dec =  document.getElementById("dec").value;
 
-			monthlyAvg =  (Number(jan) + Number(feb) + Number(mar) + Number(apr) +
+			dailyAvgTot =  (Number(jan) + Number(feb) + Number(mar) + Number(apr) +
 							 Number(may) + Number(jun) + Number(jul) + Number(aug) +
 							 Number(sep) + Number(oct) + Number(nov) + Number(dec))/12;
-			monthlyAvg = monthlyAvg.toFixed(2);
+			dailyAvgTot = dailyAvgTot.toFixed(2);
 
-			annUsage = monthlyAvg * 12;
+			annUsage = dailyAvgTot * 365;
 			annUsage = annUsage.toFixed(2);
-
-
+			document.getElementById("cust_avg_annual").value = annUsage;
 	}
 	else {
 		annUsage =  parseInt(document.getElementById("cust_avg_annual").value);
@@ -114,13 +109,13 @@
 	}
 
 	utilRate = document.getElementById("cust_rate").value;
-	document.getElementById("totRate").innerHTML = monthlyAvg;
-		document.getElementById("annUse").innerHTML = annUsage;
+	//document.getElementById("totRate").innerHTML = monthlyAvg;
+		//document.getElementById("annUse").innerHTML = annUsage;
 
 
 		annCost = annUsage * utilRate;
 		annCost = annCost.toFixed(2);
-		document.getElementById("annCost").innerHTML = annCost;
+		//document.getElementById("annCost").innerHTML = annCost;
 		document.getElementById("cur_annual_cost").innerHTML = annCost;
 
 		document.getElementById("cur_annual_usg").innerHTML = annUsage;
@@ -128,7 +123,7 @@
 
 		monCost = annCost / 12;
 		monCost = monCost.toFixed(2);
-		document.getElementById("monCost").innerHTML = monCost;
+		//document.getElementById("monCost").innerHTML = monCost;
 		document.getElementById("cur_avgmonthly_cost").value = monCost;
 
 		conversionRate = 1.2;
@@ -155,32 +150,22 @@
 		document.getElementById("Inverter").innerHTML = inverter;
 
 		EngElec = 'Ryan Inc';
-		document.getElementById("LicEngElec").innerHTML = EngElec;
+		//document.getElementById("LicEngElec").innerHTML = EngElec;
 
 		document.getElementById("cur_annual_usg").innerHTML = annUsage;
 		document.getElementById("cur_annual_cost").value = annCost;
 
 
 
-/*
-0.856055556
-1.002413793
-1.433209877
-1.584551282
-1.829358974
-1.247837838
-1.097777778
-0.823333333
-0.649694444
-1.025808081
-0.7184375
-0.735977011
-*/
+
+
+
+
 		var annualCost = annCost;
 		var today = new Date();
 		var project_25 = [{period:today.getFullYear(),Cost:annualCost}];
 		for(var i = 1; i <= 25;i++) {
-			annualCost = annualCost*(1+($("#market_escal").val()/100));
+			annualCost = (parseFloat(annualCost*(1+($("#market_escal").val()/100)))).toFixed(2);
 			var point = {period:+today.getFullYear()+i,Cost:annualCost};
 			project_25.push(point);
 		}
@@ -194,12 +179,53 @@
 			labels: ['AnnualPayment'],
 			xlabels: ['day'],
 			pointSize: 10,
-			hideHover: 'auto',
+			hideHover: 'true',
 			resize: true,
 			lineColors: ['#ff0000'],
 			lineWidth:3,
 			pointSize:10,
 		});
+
+
+
+
+			jan_M = jan * 31;
+			feb_M = feb * 28;
+			mar_M = mar * 31;
+			apr_M = apr * 30;
+			may_M = may * 31;
+			jun_M = jun * 30;
+			jul_M = jul * 31;
+			aug_M = aug * 31;
+			sep_M = sep * 30;
+			oct_M = oct * 31;
+			nov_M = nov * 30;
+			dec_M = dec * 31;
+					var barData = {
+							labels: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
+							datasets: [
+									{
+											label: "Usage",
+											backgroundColor: 'rgb(66, 134, 244)',
+											pointBorderColor: "#fff",
+											data: [jan_M, feb_M, mar_M, apr_M, may_M, jun_M, jul_M, aug_M, sep_M, oct_M, nov_M, dec_M]
+									},
+									{
+											label: "Production",
+											backgroundColor: 'rgb(255, 255, 0)',
+											borderColor: "rgba(26,179,148,0.7)",
+											pointBackgroundColor: "rgba(26,179,148,1)",
+											pointBorderColor: "#fff",
+											data: [jan_M*0.856055556, feb_M*1.002413793, mar_M*1.433209877, apr_M*1.584551282, may_M*1.629358974, jun_M*1.747837838, jul_M*1.897777778, aug_M*1.923333333, sep_M*1.649694444, oct_M*1.025808081, nov_M*0.7184375, dec_M*0.735977011]
+									}
+							]
+					};
+					var barOptions = {
+							responsive: true
+					};
+					var ctx2 = document.getElementById("prodVsUsage").getContext("2d");
+					new Chart(ctx2, {type: 'bar', data: barData, options: barOptions});
+
 	}
 
 

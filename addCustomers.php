@@ -241,10 +241,14 @@ exit();
 
 
                         <div class="input-group m-b" id="annual_input">
-
                             <label class="sr-only">Average Annual Usage</label>
                             <input type="value" placeholder="Annual Usage (kWh)" id="cust_avg_annual" class="form-control">
                         </div>
+                        <div class="input-group m-b">
+
+                        <label class="sr-only">Escalation Rate</label>
+                        <input type="value" class="form-control" placeholder="Escalation %" id="market_escal">
+                      </div>
 
 <br><br>
 <div class="input-group m-b">
@@ -367,15 +371,14 @@ exit();
               <div class="col-lg-4">
                 <label class="widget style2">Per kWh Rate</label>
                 <input type="value" placeholder="kWh Rate" value="0.16" id="cust_rate">
-                <label class="widget style2">Escalation Rate</label>
-                <input type="value" placeholder="%" id="market_escal">
+
 
               </div>
               <div class="input-group m-b">
-                      <label  class="sr-only">Avg Monthly Cost</label>
+                      <label  class="sr-only">Current Monthly Cost</label>
 
-                      <h2>Avg Monthly Cost</h2>
-                      <input disabled type="value" placeholder="Avg Monthly Cost" id="cur_avgmonthly_cost" class="form-control">
+                      <h2>Current Monthly Cost</h2>
+                      <input disabled type="value" placeholder="Current Monthly Cost" id="cur_avgmonthly_cost" class="form-control">
                   </div>
 
 
@@ -393,95 +396,83 @@ exit();
     </div>
 
 
-    <div class="row"> <!--you system info-->
-    <div class="col-lg-8 initiallyHidden" id="sys_info_from">
-    <div class="ibox float-e-margins">
-    <div class="ibox-title">
-        <h5>Your system info</h5>
-        <div class="ibox-tools">
-            <a class="collapse-link">
-                <i class="fa fa-chevron-up"></i>
-            </a>
+        <div class="row initiallyHidden" id="sys_info_from"> <!--you system info-->
+        <div class="col-lg-8">
+        <div class="ibox float-e-margins">
+        <div class="ibox-title">
+            <h5>Your system info</h5>
+            <div class="ibox-tools">
+                <a class="collapse-link">
+                    <i class="fa fa-chevron-up"></i>
+                </a>
+            </div>
         </div>
-    </div>
-    <div class="ibox-content">
-        <form role="form" class="form-inline">
-        <body>
-          <h2>Usage and Cost </h2><br>
+        <div class="ibox-content">
+            <div role="form" class="form-inline">
+            <body>
+              <table class="table">
+                                      <tbody>
+                                      <tr>
+                                          <td>
+                                            <div class="btn btn-danger m-r-sm" id="sysSize">
+                                              </div>
+                                              Solar System Size
+                                          </td>
+                                          <td>
+                                              <button type="button" class="btn btn-warning m-r-sm" id="actSize"></button>
+                                             Actual Size
+                                          </td>
+                                          <td>
+                                              <div  class="btn btn-default m-r-sm" id="panCount"></div>
+                                              Panel Count
+                                          </td>
 
-          <div class="input-group m-b">
-            Daily Average
-            <div id="totRate">Total Rate</div><br>
-          </div>
-          &emsp;&emsp;
-          <div class="input-group m-b">
-            Annual Usage
-            <div id="annUse">Annual Usage</div><br>
-          </div>
-          &emsp;&emsp;
-          <div class="input-group m-b">
-            Annual Cost
-            <div id="annCost">Annual Cost</div><br>
-          </div>
+                                      </tr>
+                                      <tr>
+                                        <td>
+                                            <button type="button" class="btn btn-primary m-r-sm" id="price"></button>
+                                            Price
+                                        </td>
+                                        <td>
+                                            <button type="button" class="btn btn-info m-r-sm" id="PVMakeModel"></button>
+                                              PV Panel Make & Model
+                                        </td>
+                                        <td>
+                                            <button type="button" class="btn btn-danger m-r-sm" id="Inverter"></button>
+                                            Inverter
+                                        </td>
 
-          <br>
+                                      </tr>
+                                      <tr>
 
-          <div class="input-group m-b">
-            Monthly Cost
-            <div id="monCost">Monthly Cost</div><br>
-          </div>
-          &emsp;&emsp;
-          <div class="input-group m-b">
-            DC Production
-            <div id="sysSize">System Size</div><br>
-          </div>
-          &emsp;&emsp;
-          <div class="input-group m-b">
-            Panel Count
-            <div id="panCount">Panel Count</div><br>
-          </div>
+                                      </tr>
+                                      </tbody>
+                                  </table>
 
-          <br>
 
-          <div class="input-group m-b">
-            Actual Size
-            <div id="actSize">Actual Size</div><br>
-          </div>
-          &emsp;&emsp;
-          <div class="input-group m-b">
-            Price
-            <div id="price">Price</div><br>
-          </div>
-          &emsp;&emsp;
-          <div class="input-group m-b">
-            PV Panel Make & Model
-            <div id ="PVMakeModel">PV Panel Make & Model</div><br>
+            </body>
           </div>
 
-          <br>
-
-          <div class="input-group m-b">
-            Inverter
-            <div id ="Inverter">Inverter</div><br>
-          </div>
-          &emsp;&emsp;
-          <div class="input-group m-b">
-            License Engineering & Electrical
-            <div id ="LicEngElec">Lic Engineering & Electrical</div><br>
-          </div>
-          &emsp;&emsp;
-
-          <br>
+        </div>
+        </div>
 
 
-        </body>
-        </form>
+        </div>
 
-    </div>
-    </div>
-    </div>
+        <div class="col-lg-8">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>Solar Production</h5>
+                </div>
+                <div class="ibox-content">
+                    <div>
+                        <canvas id="prodVsUsage" height="140"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-    </div>
+        </div>
 
     <div class="row"> <!--cost breakdown-->
     <div class="col-lg-8 initiallyHidden" id="cost_brkdown_form">
