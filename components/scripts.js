@@ -121,10 +121,17 @@ $( document ).ready(function() {
                 data : {'customer':postData},
                 success:function(data, textStatus, jqXHR)
                 {
-                    $("#message").text("Congratulations. You are now energy freedom");
-                    $("#modalvav").attr("href","home.html");
-                    $("#myModal2").modal("toggle");
-                    console.log(data);
+                    if(data) {
+                     $("#message").text("Congratulations. You are now energy freedom");
+                     $("#modalvav").attr("href","home.html");
+                     $("#myModal2").modal("toggle");
+                    }
+                    else {
+                        $("#message").text("Please try again");
+                        $("#modalvav").attr("href","addingCustomers.html");
+                        $("#myModal2").modal("toggle");
+                    }
+
 
                 },
                 error: function(jqXHR, textStatus, errorThrown)

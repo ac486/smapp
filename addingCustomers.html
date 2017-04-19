@@ -145,15 +145,15 @@ session_start();
                             <form role="form" class="form-inline">
                                 <div class="form-group">
                                     <label for="feFirstName" class="sr-only">First Name</label>
-                                    <input type="text" placeholder="First Name" id="feFirstName" class="form-control">
+                                    <input type="text" placeholder="First Name" id="feFirstName" name="feFirstName"class="form-control">
                                 </div>
                                 <div class="form-group">
                                     <label for="feLastName" class="sr-only">Last Name</label>
-                                    <input type="text" placeholder="Last Name" id="feLastName" class="form-control">
+                                    <input type="text" placeholder="Last Name" id="feLastName" name="feLastName" class="form-control">
                                 </div>
                                 <div class="form-group">
                                     <label for="employeeId" class="sr-only">Employee number</label>
-                                    <input type="value" placeholder="Employee ID#" id="employeeId" class="form-control">
+                                    <input type="value" placeholder="Employee ID#" id="employeeId" name="employeeID" class="form-control">
                                 </div>
 
                             </form>
@@ -803,12 +803,13 @@ session_start();
     costOfDoingNothingGraph = function(monthly,yearly,tenYears,twentyFiveYears) {
         Morris.Donut({
             element: 'morris-donut-chart',
-            data: [{ label: "Monthly (USD)", value: monthly },
+            data: [{ label: "Monthly (USD)", value: monthly }/*,
                 { label: "Yearly (USD)", value: yearly },
                 { label: "10 YR (USD)", value: tenYears },
-                { label: "25 YR (USD)", value: twentyFiveYears },],
+                { label: "25 YR (USD)", value: twentyFiveYears },*/],
             resize: true,
             colors: ['#87d6c6', '#54cdb4','#1ab394'],
+
         });
     }
 
