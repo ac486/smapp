@@ -235,7 +235,7 @@ exit();
                             <select class="form-control m-b" name="provider" id="cust_prov">
                                               <option hidden>Current Utility Provider</option>
                                               <option>PSE&G</option>
-                                          </select>
+                            </select>
                         </div>
                         <p></p>
 
@@ -463,6 +463,7 @@ exit();
             <div class="ibox float-e-margins">
                 <div class="ibox-title">
                     <h5>Solar Production</h5>
+
                 </div>
                 <div class="ibox-content">
                     <div>
@@ -487,7 +488,27 @@ exit();
       </div>
       <div class="ibox-content">
           <form role="form" class="form-inline">
+            
 
+
+             <body>
+              <table class="table">
+                                      <tbody>
+                                      <tr>
+                                          <td>
+                                            <div class="btn btn-danger m-r-sm" id="Monthly_Payment_NoSREC">
+                                              </div>
+                                              Sun15yr
+                                          </td>
+                                        
+                                          <td>
+                                            <div class="btn btn-danger m-r-sm" id="Total_Monthly_Payment">
+                                              </div>
+                                              Total Monthly Investment
+                                          </td>
+                                      </tbody>
+              </table>
+              </body>
           </form>
       </div>
     </div>
@@ -508,7 +529,34 @@ exit();
         </div>
         <div class="ibox-content">
             <form role="form" class="form-inline">
+              <body>
+              <table class="table">
+                                      <tbody>
+                                      <tr>
+                                          <td>
+                                            <div class="btn btn-danger m-r-sm" id="estimated_annual_prod">
+                                              </div>
+                                              Estimated Annual Production
+                                          </td>
+                                          <td>
+                                              <button type="button" class="btn btn-warning m-r-sm" id="SREC15yr"></button>
+                                             SREC 15 Year
+                                          </td>
+                                          <td>
+                                              <div  class="btn btn-default m-r-sm" id="SRECannual"></div>
+                                              SREC Annual
+                                          </td>
 
+                                      </tr>
+                                      <tr>
+                                        <td>
+                                            <button type="button" class="btn btn-primary m-r-sm" id="SRECmonthly"></button>
+                                            SREC Monthly
+                                        </td>
+
+                                      </tr>
+                                      </tbody>
+              </table>
             </form>
         </div>
     </div>

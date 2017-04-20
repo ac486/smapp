@@ -138,7 +138,7 @@
 		actualSize = panelCount * panelSize; //round this up
 		document.getElementById("actSize").innerHTML = actualSize;
 
-		price = Math.round((actualSize) * 5000)/1000;
+		var price = Math.round(Number(actualSize * 5)/10000) * 10000;
 		price = price.toFixed(2);
 		document.getElementById("price").innerHTML = price;
 
@@ -156,8 +156,41 @@
 		document.getElementById("cur_annual_cost").value = annCost;
 
 
+		//For SREC Information
+	    convRate = 1.2;
+        estAnnProd = actualSize * convRate;
+        document.getElementById("estimated_annual_prod").innerHTML = estAnnProd;
+
+        lowRate = 185;
+        numOfyears = 15;
+        SREC15yr = (estAnnProd / 1000) * lowRate * numOfyears;
+        document.getElementById("SREC15yr").innerHTML = SREC15yr;
+
+        SRECannual = SREC15yr / 12; //this should be 15 not 12
+        document.getElementById("SRECannual").innerHTML = SRECannual;
+
+        SRECmon = SRECannual / 15; //this should be 12 not 15
+        document.getElementById("SRECmonthly").innerHTML = SRECmon;
+
+        //For Financial Breakdown
+
+        var interestRate = 0.0549;
+        var interestYears = 15;
+        
+        var ratePeriod = parseFloat(interestRate) / 12;
 
 
+        //var TotalPayments = (price * ratePeriod * Math.pow((1 + ratePeriod), interestYears*12)) / (Math.pow(1 + ratePeriod)-1);
+        var PoweredValue = Math.pow((1 + ratePeriod), interestYears * 12)
+        var TopPiece = price * (ratePeriod * PoweredValue);
+        var BottomPiece = PoweredValue - 1;
+
+        var TotalPaymentMonthly = (TopPiece / BottomPiece) * 0.7;
+
+        var TotalPaymentMonthlySREC = TotalPaymentMonthly - SRECmon;
+        
+        document.getElementById("Monthly_Payment_NoSREC").innerHTML = TotalPaymentMonthly;
+        document.getElementById("Total_Monthly_Payment").innerHTML = TotalPaymentMonthlySREC;
 
 
 
