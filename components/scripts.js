@@ -138,7 +138,9 @@
 		actualSize = panelCount * panelSize; //round this up
 		document.getElementById("actSize").innerHTML = actualSize;
 
-		var price = Math.round(Number(actualSize * 5)/10000) * 10000;
+		priceMultiplier = Math.round(actualSize / 1000);
+
+		var price = priceMultiplier * 5000;
 		price = price.toFixed(2);
 		document.getElementById("price").innerHTML = price;
 
@@ -180,7 +182,8 @@
         var interestRate = 0.0599;
         var interestYears = 15;
         
-        var ratePeriod = parseFloat(interestRate) / 12;
+        var ratePeriod = interestRate / 12;
+        //ratePeriod = ratePeriod.toFixed(2);
 
 
         //var TotalPayments = (price * ratePeriod * Math.pow((1 + ratePeriod), interestYears*12)) / (Math.pow(1 + ratePeriod)-1);
@@ -191,7 +194,7 @@
         var BottomPiece = PoweredValue - 1;
         BottomPiece = BottomPiece.toFixed(2);
 
-        var TotalPaymentMonthly = (TopPiece / BottomPiece) * 0.7;
+        var TotalPaymentMonthly = (TopPiece / BottomPiece) * .7225;
         TotalPaymentMonthly = TotalPaymentMonthly.toFixed(2);
 
         var TotalPaymentMonthlySREC = TotalPaymentMonthly - SRECmon;
