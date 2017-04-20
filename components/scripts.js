@@ -172,22 +172,32 @@
         SRECmon = SRECannual / 15; //this should be 12 not 15
         document.getElementById("SRECmonthly").innerHTML = SRECmon;
 
+        var FedTaxCredRate = 0.3;
+        var FederalTaxCred = price * FedTaxCredRate;
+        document.getElementById("Federal_Tax_Credit").innerHTML = FederalTaxCred;
         //For Financial Breakdown
 
-        var interestRate = 0.0549;
+        var interestRate = 0.0599;
         var interestYears = 15;
         
         var ratePeriod = parseFloat(interestRate) / 12;
 
 
         //var TotalPayments = (price * ratePeriod * Math.pow((1 + ratePeriod), interestYears*12)) / (Math.pow(1 + ratePeriod)-1);
-        var PoweredValue = Math.pow((1 + ratePeriod), interestYears * 12)
+        var PoweredValue = Math.pow((1 + ratePeriod), interestYears * 12);
+        PoweredValue = PoweredValue.toFixed(2);
         var TopPiece = price * (ratePeriod * PoweredValue);
+        TopPiece = TopPiece.toFixed(2);
         var BottomPiece = PoweredValue - 1;
+        BottomPiece = BottomPiece.toFixed(2);
 
         var TotalPaymentMonthly = (TopPiece / BottomPiece) * 0.7;
+        TotalPaymentMonthly = TotalPaymentMonthly.toFixed(2);
 
         var TotalPaymentMonthlySREC = TotalPaymentMonthly - SRECmon;
+        TotalPaymentMonthlySREC = TotalPaymentMonthlySREC.toFixed(2);
+
+        
         
         document.getElementById("Monthly_Payment_NoSREC").innerHTML = TotalPaymentMonthly;
         document.getElementById("Total_Monthly_Payment").innerHTML = TotalPaymentMonthlySREC;

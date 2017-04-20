@@ -554,6 +554,11 @@ exit();
                                             SREC Monthly
                                         </td>
 
+                                        <td>
+                                            <button type="button" class="btn btn-primary m-r-sm" id="Federal_Tax_Credit"></button>
+                                            Federal Tax Credit
+                                        </td>
+
                                       </tr>
                                       </tbody>
               </table>
