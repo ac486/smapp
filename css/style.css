@@ -8566,7 +8566,7 @@ body.md-skin {
 
 #monthlyCircle {
   display: inline-block;
-  background: #1ab394;
+  background: #23c6c8;
   border-radius: 50%;
   width: 100px;
   height: 100px;
@@ -8593,11 +8593,10 @@ body.md-skin {
 
 #decadeCircle {
   display: inline-block;
-  background: #1ab394;
+  background: #f8ac59;
   border-radius: 50%;
   width: 200px;
   height: 200px;
-
   font-size:15px;
   color:#fff;
   line-height:50px;
@@ -8606,7 +8605,7 @@ body.md-skin {
 
 #twentyFiveCircle {
   display: inline-block;
-  background: #1ab394;
+  background: #ed5565;
   border-radius: 50%;
   width: 250px;
   height: 250px;

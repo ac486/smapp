@@ -327,18 +327,18 @@ exit();
                                    <tbody>
                                    <tr>
                                       <td>
-                                            <button id="sun10" data-toggle="button" class="btn btn-warning m-r-sm btn-outline active">Sungage 10 Year</button>
+                                            <button id="sun10" data-toggle="button" class="btn btn-warning m-r-sm btn-outline ">Sungage 10 Year</button>
                                           </td>
                                           <td>
-                                            <button id="sun15" data-toggle="button" class="btn btn-warning m-r-sm btn-outline active">Sungage 15 Year</button>
+                                            <button id="sun15" data-toggle="button" class="btn btn-warning m-r-sm btn-outline ">Sungage 15 Year</button>
                                           </td>
                                        </tr>
                                         <tr>
                                           <td>
-                                           <button type="button" data-toggle="button" class="btn btn-danger m-r-sm btn-outline active" id="mos10">Mosaic 10 Year</button>
+                                           <button type="button" data-toggle="button" class="btn btn-danger m-r-sm btn-outline " id="mos10">Mosaic 10 Year</button>
                                           </td>
                                         <td>
-                                           <button type="button" data-toggle="button" class="btn btn-danger m-r-sm btn-outline active" id="mos15">Mosaic 15 Year</button>
+                                           <button type="button" data-toggle="button" class="btn btn-danger m-r-sm btn-outline " id="mos15">Mosaic 15 Year</button>
                                         </td>
 
                                         </tr>
@@ -347,7 +347,7 @@ exit();
                                       </tr>
                                         <tr>
                                         <td>
-                                            <button type="button" data-toggle="button" class="btn btn-info m-r-sm btn-outline active" id="gsky12">GreenSky 12 Year</button>
+                                            <button type="button" data-toggle="button" class="btn btn-info m-r-sm btn-outline " id="gsky12">GreenSky 12 Year</button>
 
                                         </td>
 
@@ -423,11 +423,24 @@ exit();
 
                   <div id="nothing_graph"></div>
 
-
-
-
-
-
+                  <div class="ibox-content">
+                      <div id="monthlyCircle">
+                          Monthly
+                          <h2 id="monthlyText"></h2>
+                      </div>
+                      <div id="yearlyCircle">
+                          Yearly
+                          <h2 id="yearlyText"></h2>
+                      </div>
+                      <div id="decadeCircle">
+                          10 Years
+                          <h2 id="decadeText"></h2>
+                      </div>
+                      <div id="twentyFiveCircle">
+                          25 Years
+                          <h2 id="twentFiveText"></h2>
+                      </div>
+                  </div>
             </div>
         </div>
       </div>
@@ -482,9 +495,8 @@ exit();
                                         </td>
 
                                       </tr>
-                                      <tr>
 
-                                      </tr>
+
                                       </tbody>
                                   </table>
 
@@ -508,46 +520,31 @@ exit();
                     <div>
                         <canvas id="prodVsUsage" height="140"></canvas>
                     </div>
+
+                    <table class="table">
+                                            <tbody>
+                    <tr>
+                        <td>
+                            <button type="button" class="btn btn-info m-r-sm" id="acresSaved"></button>
+                            Acres of U.S Forests in One Year
+                        </td>
+
+                        <td>
+                            <button type="button" class="btn btn-primary m-r-sm" id="treesSaved"></button>
+                            Trees saved Per Year
+                        </td>
+
+                        <td>
+                            <button type="button" class="btn btn-default m-r-sm" id="co2"></button>
+                            CO2 Emissions in Tons
+                        </td>
+
+                    </tr>
+                  </tbody>
+                </table>
                 </div>
             </div>
         </div>
-
-        </div>
-
-
-        <!--Cost of Doing Nothing-->
-        <div class="row">
-            <div class="col-lg-8 initiallyHidden" id="costOfNothing">
-                <div class="ibox float-e-margins">
-                    <div class="ibox-title">
-                        <h5>Cost of Doing Nothing</h5>
-                        <div class="ibox-tools">
-                            <a class="collapse-link">
-                                <i class="fa fa-chevron-up"></i>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="ibox-content">
-                        <div id="monthlyCircle">
-                            Monthly
-                            <h2 id="monthlyText"></h2>
-                        </div>
-                        <div id="yearlyCircle">
-                            Yearly
-                            <h2 id="yearlyText"></h2>
-                        </div>
-                        <div id="decadeCircle">
-                            10 Years
-                            <h2 id="decadeText"></h2>
-                        </div>
-                        <div id="twentyFiveCircle">
-                            25 Years
-                            <h2 id="twentFiveText"></h2>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
 
         </div>
 
@@ -586,6 +583,10 @@ exit();
               </table>
               </body>
           </form>
+
+          <div>
+              <canvas id="solarVsnoSolar" height="140"></canvas>
+          </div>
       </div>
     </div>
     </div>
@@ -596,7 +597,7 @@ exit();
     <div class="col-lg-8 initiallyHidden" id="incentive_form">
     <div class="ibox float-e-margins">
         <div class="ibox-title">
-            <h5>incentive</h5>
+            <h5>Incentives</h5>
             <div class="ibox-tools">
                 <a class="collapse-link">
                     <i class="fa fa-chevron-up"></i>
@@ -609,57 +610,37 @@ exit();
               <table class="table">
                     <tbody>
                     <tr>
-                        <td>
-                          <div class="btn btn-danger m-r-sm" id="estimated_annual_prod">
-                            </div>
-                            Estimated Annual Production
-                        </td>
-                        <td>
-                            <button type="button" class="btn btn-warning m-r-sm" id="SREC15yr"></button>
-                           SREC 15 Year
-                        </td>
-                        <td>
-                            <div  class="btn btn-default m-r-sm" id="SRECannual"></div>
-                            SREC Annual
-                        </td>
-
-                    </tr>
-                    <tr>
                       <td>
                           <button type="button" class="btn btn-primary m-r-sm" id="SRECmonthly"></button>
                           SREC Monthly
                       </td>
                       <td>
+                          <div  class="btn btn-default m-r-sm" id="SRECannual"></div>
+                          SREC Annual
+                      </td>
+                        <td>
+                            <button type="button" class="btn btn-warning m-r-sm" id="SREC15yr"></button>
+                           SREC 15 Year
+                        </td>
+                    </tr>
+                    <tr>
+                      <td>
                         <button type="button" class="btn btn-primary m-r-sm" id="Federal_Tax_Credit"></button>
                         Federal  Tax Credit
                       </td>
+                      <td>
+                        <div class="btn btn-danger m-r-sm" id="estimated_annual_prod">
+                          </div>
+                          Estimated Annual Production
+                      </td>
                     </tr>
 
-                    <tr>
-                        <td>
-                            <button type="button" class="btn btn-info m-r-sm" id="acresSaved"></button>
-                            Acres of U.S Forests in One Year
-                        </td>
-
-                        <td>
-                            <button type="button" class="btn btn-primary m-r-sm" id="treesSaved"></button>
-                            Trees saved Per Year
-                        </td>
-
-                        <td>
-                            <button type="button" class="btn btn-default m-r-sm" id="co2"></button>
-                            CO2 Emissions in Tons
-                        </td>
-
-                    </tr>
 
                     </tbody>
               </table>
             </div>
 
-            <div>
-                <canvas id="solarVsnoSolar" height="140"></canvas>
-            </div>
+
         </div>
     </div>
 

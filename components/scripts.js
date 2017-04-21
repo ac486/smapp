@@ -335,7 +335,7 @@
 		nosolar.push(annualCost/12);
 
 		for(var i = 1; i <= 25;i++) {
-			if(i < 15) {
+			if(i < interestYears) {
 			annualCost = (parseFloat(annualCost*(1+($("#market_escal").val()/100)))).toFixed(2);
 			period.push(today.getFullYear()+i);
 			solar.push(TotalPaymentMonthlySREC);
@@ -380,10 +380,9 @@
 
         //cost of doing nothing
         $("#monthlyText").text("$" + Math.ceil(monCost));
-        $("#yearlyText").text("$" + Math.ceil(project_25[1].Cost));
+        $("#yearlyText").text("$" + Math.ceil(project_25[0].Cost));
         $("#decadeText").text("$" + Math.ceil(project_25[10].Cost));
         $("#twentFiveText").text("$" + Math.ceil(project_25[25].Cost));
-        $("#costOfNothing").toggle();
         //end cost of nothing
 
         /**
@@ -499,7 +498,10 @@ $( document ).ready(function() {
 		});
 
 			$("#sun10").click(function(){
-
+        $("#sun15").removeClass("active");
+        $("#mos10").removeClass("active");
+        $("#mos15").removeClass("active");
+        $("#gsky12").removeClass("active");
 				interestYears = 10;
 				interestRate = 0.0549;
 				priceOffsetMultiplier = 0.700401; //1 cent above
@@ -507,21 +509,30 @@ $( document ).ready(function() {
 
 		});
 		$("#sun15").click(function(){
-
+      $("#sun10").removeClass("active");
+      $("#mos10").removeClass("active");
+      $("#mos15").removeClass("active");
+      $("#gsky12").removeClass("active");
 				interestYears = 15;
 				interestRate = 0.0599;
 				priceOffsetMultiplier = 0.72255; //perfect
 		});
 
 		$("#mos10").click(function(){
-
+      $("#sun10").removeClass("active");
+      $("#sun15").removeClass("active");
+      $("#mos15").removeClass("active");
+      $("#gsky12").removeClass("active");
 				interestYears = 10;
 				interestRate = 0.0699;
 				priceOffsetMultiplier = 0.75693; //perfect
 		});
 
 		$("#mos15").click(function(){
-
+      $("#sun10").removeClass("active");
+      $("#sun15").removeClass("active");
+      $("#mos10").removeClass("active");
+      $("#gsky12").removeClass("active");
 				interestYears = 15;
 				interestRate = 0.0699;
 				//priceOffsetMultiplier = 0.74475;
@@ -529,7 +540,10 @@ $( document ).ready(function() {
 		});
 
 		$("#gsky12").click(function(){
-
+      $("#sun10").removeClass("active");
+      $("#sun15").removeClass("active");
+      $("#mos10").removeClass("active");
+      $("#mos15").removeClass("active");
 				interestYears = 12;
 				interestRate = 0.0399;
 				priceOffsetMultiplier = 0.7759; //perfect
