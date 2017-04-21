@@ -475,6 +475,43 @@ exit();
 
         </div>
 
+
+        <!--Cost of Doing Nothing-->
+        <div class="row">
+            <div class="col-lg-8 initiallyHidden" id="costOfNothing">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <h5>Cost of Doing Nothing</h5>
+                        <div class="ibox-tools">
+                            <a class="collapse-link">
+                                <i class="fa fa-chevron-up"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="ibox-content">
+                        <div id="monthlyCircle">
+                            Monthly
+                            <h2 id="monthlyText"></h2>
+                        </div>
+                        <div id="yearlyCircle">
+                            Yearly
+                            <h2 id="yearlyText"></h2>
+                        </div>
+                        <div id="decadeCircle">
+                            10 Years
+                            <h2 id="decadeText"></h2>
+                        </div>
+                        <div id="twentyFiveCircle">
+                            25 Years
+                            <h2 id="twentFiveText"></h2>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
     <div class="row"> <!--cost breakdown-->
     <div class="col-lg-8 initiallyHidden" id="cost_brkdown_form">
     <div class="ibox float-e-margins">
