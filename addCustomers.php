@@ -17,7 +17,7 @@ exit();
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
     <title>Sunmint | Customer Proposal</title>
-
+ <link rel="icon" href="photos/sunmintfavicon.png" type="image/x-icon">
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="font-awesome/css/font-awesome.css" rel="stylesheet">
 
@@ -235,6 +235,9 @@ exit();
                             <select class="form-control m-b" name="provider" id="cust_prov">
                                               <option hidden>Current Utility Provider</option>
                                               <option>PSE&G</option>
+                                              <option>RECO</option>
+                                              <option>Atlantic City Electric</option>
+                                              <option>Jersey Central Power & Light</option>
                             </select>
                         </div>
                         <p></p>
@@ -319,6 +322,42 @@ exit();
                         </div>
 
                     </form>
+                           <body>
+                            <table class="table">
+                                   <tbody>
+                                   <tr>
+                                      <td>
+                                            <button id="sun10" data-toggle="button" class="btn btn-warning m-r-sm btn-outline active">Sungage 10 Year</button>
+                                          </td>
+                                          <td>
+                                            <button id="sun15" data-toggle="button" class="btn btn-warning m-r-sm btn-outline active">Sungage 15 Year</button>
+                                          </td>
+                                       </tr>
+                                        <tr>
+                                          <td>
+                                           <button type="button" data-toggle="button" class="btn btn-danger m-r-sm btn-outline active" id="mos10">Mosaic 10 Year</button>
+                                          </td>
+                                        <td>
+                                           <button type="button" data-toggle="button" class="btn btn-danger m-r-sm btn-outline active" id="mos15">Mosaic 15 Year</button>
+                                        </td>
+
+                                        </tr>
+
+
+                                      </tr>
+                                        <tr>
+                                        <td>
+                                            <button type="button" data-toggle="button" class="btn btn-info m-r-sm btn-outline active" id="gsky12">GreenSky 12 Year</button>
+
+                                        </td>
+
+                                      </tr>
+
+                                      </tbody>
+                                  </table>
+
+
+            </body>
                     <button id="generateInfo_btn" >Generate Usage and Cost</button>
                 </div>
             </div>
@@ -636,6 +675,31 @@ exit();
                       <div class="submitbutton"> <!--javascript links all forms here to one submit button-->
                         <input type="button" class="btn btn-primary" value="Submit!" onclick="submitForms()" />
                       </div>
+
+
+
+          		        <div class="col-lg-8">
+                                 <div class="ibox">
+                                     <div class="modal inmodal" id="confirm_modal" tabindex="-1" role="dialog" aria-hidden="true">
+                                         <div class="modal-dialog">
+                                             <div class="modal-content animated flipInY">
+                                                 <div class="modal-header">
+                                                     <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                                                     <h4 class="modal-title">Sunmint Solar</h4>
+                                                     <small class="font-bold"></small>
+                                                 </div>
+                                                 <div class="modal-body">
+                                                     <p id="modal_message"></p>
+                                                 </div>
+                                                 <div class="modal-footer">
+                                                     <button id="modal_nav" type="button" class="btn btn-white" data-dismiss="modal">Close</button>
+                                                 </div>
+                                             </div>
+                                         </div>
+                                     </div>
+                                 </div>
+                             </div>
+
         </div> <!--wrapper div-->
 
 
