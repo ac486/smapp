@@ -235,6 +235,10 @@ exit();
                             <select class="form-control m-b" name="provider" id="cust_prov">
                                               <option hidden>Current Utility Provider</option>
                                               <option>PSE&G</option>
+                                              <option>RECO</option>
+                                              <option>Atlantic City Electric</option>
+                                              <option>Jersey Central Power & Light</option>
+                                              
                             </select>
                         </div>
                         <p></p>
