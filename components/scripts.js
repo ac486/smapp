@@ -105,7 +105,7 @@
 	else {
 		annUsage =  parseInt(document.getElementById("cust_avg_annual").value);
 		annUsage = annUsage.toFixed(2);
-		monthlyAvg = (annUsage/12).toFixed(2);
+		var monthlyAvg = (annUsage/12).toFixed(2);
 	}
 
 	utilRate = document.getElementById("cust_rate").value;
@@ -138,9 +138,7 @@
 		actualSize = panelCount * panelSize; //round this up
 		document.getElementById("actSize").innerHTML = actualSize;
 
-		priceMultiplier = Math.round(actualSize / 1000);
-
-		var price = priceMultiplier * 5000;
+		var price = Math.round(Number(actualSize * 5)/10000) * 10000;
 		price = price.toFixed(2);
 		document.getElementById("price").innerHTML = price;
 
@@ -174,39 +172,37 @@
         SRECmon = SRECannual / 15; //this should be 12 not 15
         document.getElementById("SRECmonthly").innerHTML = SRECmon;
 
-        var FedTaxCredRate = 0.3;
-        var FederalTaxCred = price * FedTaxCredRate;
-        document.getElementById("Federal_Tax_Credit").innerHTML = FederalTaxCred;
-        //For Financial Breakdown
+				//For Fed Information
+				var FedTaxCredRate = 0.3;
+   			var FederalTaxCred = price * FedTaxCredRate;
+      	document.getElementById("Federal_Tax_Credit").innerHTML = FederalTaxCred;
 
+        //For Financial Breakdown
         var interestRate = 0.0599;
         var interestYears = 15;
-        
-        var ratePeriod = interestRate / 12;
-        //ratePeriod = ratePeriod.toFixed(2);
+
+        var ratePeriod = parseFloat(interestRate) / 12;
 
 
         //var TotalPayments = (price * ratePeriod * Math.pow((1 + ratePeriod), interestYears*12)) / (Math.pow(1 + ratePeriod)-1);
         var PoweredValue = Math.pow((1 + ratePeriod), interestYears * 12);
-        PoweredValue = PoweredValue.toFixed(2);
+				PoweredValue = PoweredValue.toFixed(2);
         var TopPiece = price * (ratePeriod * PoweredValue);
-        TopPiece = TopPiece.toFixed(2);
+				TopPiece = TopPiece.toFixed(2);
         var BottomPiece = PoweredValue - 1;
-        BottomPiece = BottomPiece.toFixed(2);
+				BottomPiece = BottomPiece.toFixed(2);
 
-        var TotalPaymentMonthly = (TopPiece / BottomPiece) * .7225;
-        TotalPaymentMonthly = TotalPaymentMonthly.toFixed(2);
+        var TotalPaymentMonthly = (TopPiece / BottomPiece) * 0.7225;
+				TotalPaymentMonthly = TotalPaymentMonthly.toFixed(2);
 
         var TotalPaymentMonthlySREC = TotalPaymentMonthly - SRECmon;
-        TotalPaymentMonthlySREC = TotalPaymentMonthlySREC.toFixed(2);
+				TotalPaymentMonthlySREC = TotalPaymentMonthlySREC.toFixed(2);
 
-        
-        
-        document.getElementById("Monthly_Payment_NoSREC").innerHTML = TotalPaymentMonthly;
+    		document.getElementById("Monthly_Payment_NoSREC").innerHTML = TotalPaymentMonthly;
         document.getElementById("Total_Monthly_Payment").innerHTML = TotalPaymentMonthlySREC;
 
 
-
+//25 year no solar projection graph
 		var annualCost = annCost;
 		var today = new Date();
 		var project_25 = [{period:today.getFullYear(),Cost:annualCost}];
@@ -223,7 +219,6 @@
 			xkey: ['period'],
 			ykeys: ['Cost'],
 			labels: ['AnnualPayment'],
-			xlabels: ['day'],
 			pointSize: 10,
 			hideHover: 'true',
 			resize: true,
@@ -232,21 +227,39 @@
 			pointSize:10,
 		});
 
+//end of graph
 
+//production vs usage graph
+		if  (document.getElementById("monthly").checked){
+					jan_M = jan * 31;
+					feb_M = feb * 28;
+					mar_M = mar * 31;
+					apr_M = apr * 30;
+					may_M = may * 31;
+					jun_M = jun * 30;
+					jul_M = jul * 31;
+					aug_M = aug * 31;
+					sep_M = sep * 30;
+					oct_M = oct * 31;
+					nov_M = nov * 30;
+					dec_M = dec * 31;
+		}
+		else {
 
+			jan_M = monthlyAvg;
+			feb_M = monthlyAvg;
+			mar_M = monthlyAvg;
+			apr_M = monthlyAvg;
+			may_M = monthlyAvg;
+			jun_M = monthlyAvg;
+			jul_M = monthlyAvg;
+			aug_M = monthlyAvg;
+			sep_M = monthlyAvg;
+			oct_M = monthlyAvg;
+			nov_M = monthlyAvg;
+			dec_M = monthlyAvg;
 
-			jan_M = jan * 31;
-			feb_M = feb * 28;
-			mar_M = mar * 31;
-			apr_M = apr * 30;
-			may_M = may * 31;
-			jun_M = jun * 30;
-			jul_M = jul * 31;
-			aug_M = aug * 31;
-			sep_M = sep * 30;
-			oct_M = oct * 31;
-			nov_M = nov * 30;
-			dec_M = dec * 31;
+		}
 					var barData = {
 							labels: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
 							datasets: [
@@ -271,6 +284,70 @@
 					};
 					var ctx2 = document.getElementById("prodVsUsage").getContext("2d");
 					new Chart(ctx2, {type: 'bar', data: barData, options: barOptions});
+//end of graph
+
+
+
+
+
+//solar system payment vs 25 years no solar cost graph
+
+		var annualCost = annCost;
+		var solarNosolar = [];
+		var period = []; var solar = [];
+		var nosolar = [];
+
+	solar.push(TotalPaymentMonthlySREC);
+		period.push(today.getFullYear());
+		nosolar.push(annualCost/12);
+
+		for(var i = 1; i <= 25;i++) {
+			if(i < 15) {
+			annualCost = (parseFloat(annualCost*(1+($("#market_escal").val()/100)))).toFixed(2);
+			period.push(today.getFullYear()+i);
+			solar.push(TotalPaymentMonthlySREC);
+			nosolar.push(annualCost/12);
+			}
+			else {
+				annualCost = (parseFloat(annualCost*(1+($("#market_escal").val()/100)))).toFixed(2);
+				period.push(today.getFullYear()+i);
+				solar.push(0);
+				nosolar.push(annualCost/12);
+			}
+		}
+
+
+		var lineData = {
+		        labels: period,
+		        datasets: [
+
+		            {
+		                label: "Solar",
+		                backgroundColor: 'rgba(245, 216, 0, 1)',
+		                borderColor: "rgba(26,179,148,0.7)",
+		                pointBackgroundColor: "rgba(26,179,148,1)",
+		                pointBorderColor: "#fff",
+		                data: solar
+		            },{
+		                label: "No Solar",
+		                backgroundColor: 'rgba(21, 0, 214, 1)',
+		                pointBorderColor: "#fff",
+		                data: nosolar
+		            }
+		        ]
+		    };
+
+		    var lineOptions = {
+		        responsive: true
+		    };
+
+
+		    var ctx = document.getElementById("solarVsnoSolar").getContext("2d");
+		    new Chart(ctx, {type: 'line', data: lineData, options:lineOptions});
+
+
+
+
 
 	}
 
