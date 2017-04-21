@@ -617,6 +617,31 @@ exit();
                       <div class="submitbutton"> <!--javascript links all forms here to one submit button-->
                         <input type="button" class="btn btn-primary" value="Submit!" onclick="submitForms()" />
                       </div>
+
+
+
+          		        <div class="col-lg-8">
+                                 <div class="ibox">
+                                     <div class="modal inmodal" id="confirm_modal" tabindex="-1" role="dialog" aria-hidden="true">
+                                         <div class="modal-dialog">
+                                             <div class="modal-content animated flipInY">
+                                                 <div class="modal-header">
+                                                     <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                                                     <h4 class="modal-title">Sunmint Solar</h4>
+                                                     <small class="font-bold"></small>
+                                                 </div>
+                                                 <div class="modal-body">
+                                                     <p id="modal_message"></p>
+                                                 </div>
+                                                 <div class="modal-footer">
+                                                     <button id="modal_nav" type="button" class="btn btn-white" data-dismiss="modal">Close</button>
+                                                 </div>
+                                             </div>
+                                         </div>
+                                     </div>
+                                 </div>
+                             </div>
+
         </div> <!--wrapper div-->
 
 

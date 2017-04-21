@@ -47,35 +47,66 @@
 
 		function submitForms(){
 
+				jQuery.post(baseUrl()+"/ajaxhandler/ajaxhandler.php", {
+						ajax_action: 'new_customer',
+						cust_name : (document.getElementById("cust_fn").value + " " + document.getElementById("cust_ln").value),
+						cust_email : document.getElementById("cust_email").value,
+						cust_phone : document.getElementById("cust_phone").value,
+						cust_address : document.getElementById("cust_street").value,
+						cust_city : document.getElementById("cust_city").value,
+						cust_state : document.getElementById("cust_state").value,
+						cust_zip : document.getElementById("cust_zip").value,
+						cust_usg_annual : document.getElementById("cust_avg_annual").value,
+						cust_cost_annual : document.getElementById("cur_annual_cost").value,
+						cust_prov : document.getElementById("cust_prov").value,
+					},
+					function (data) {
+						if(data != '' ){
+							addCustSys(data);
+						}
+						else{
+							$("#modal_message").text("Oops, something went wrong! Please try again or contact support.");
+							$("#modal_nav").attr("href","home.html");
+							$("#confirm_modal").modal("toggle");
+							return false;
+						}
+					}
+				);
+			}
+
+		function addCustSys(custId) {
 			jQuery.post(baseUrl()+"/ajaxhandler/ajaxhandler.php", {
-					ajax_action: 'new_customer',
-					cust_name : (document.getElementById("cust_fn").value + " " + document.getElementById("cust_ln").value),
-					cust_email : document.getElementById("cust_email").value,
-					cust_phone : document.getElementById("cust_phone").value,
-					cust_address : document.getElementById("cust_street").value,
-					cust_city : document.getElementById("cust_city").value,
-					cust_state : document.getElementById("cust_state").value,
-					cust_zip : document.getElementById("cust_zip").value,
-					cust_usg_annual : document.getElementById("cust_avg_annual").value,
-					cust_cost_annual : document.getElementById("cur_annual_cost").value,
-					cust_prov : document.getElementById("cust_prov").value,
-				},
-						function (data) {
-				 if(data!='' ){
-
-					 alert(data);
-
+						ajax_action: 'new_system',
+						cust_id : custId,
+						sys_size : document.getElementById("actSize").innerHTML,
+						sys_prod : document.getElementById("estimated_annual_prod").innerHTML,
+						sys_panels : document.getElementById("panCount").innerHTML,
+						sys_panel_type : document.getElementById("PVMakeModel").innerHTML,
+						sys_cost : document.getElementById("price").innerHTML,
+						srec_month : document.getElementById("SRECmonthly").innerHTML,
+						srec_annu : document.getElementById("SRECannual").innerHTML,
+						srec_15year : document.getElementById("SREC15yr").innerHTML,
+						fed_credit : document.getElementById("Federal_Tax_Credit").innerHTML,
+						monthly_payment : document.getElementById("Total_Monthly_Payment").innerHTML,
+					},
+					function (data) {
+						if(data != '' ){
+							if (data == 1) {
+								$("#modal_message").text("Congratulations, you are one step closer to Energy Freedom!");
+								$("#modal_nav").attr("href","home.html");
+								$("#confirm_modal").modal("toggle");
+							}
+						}
+						else{
+							$("#modal_message").text("Oops!");
+							$("#modal_nav").attr("href","home.html");
+							$("#confirm_modal").modal("toggle");
+							return false;
+						}
 					}
-					else{
-					alert('Something went wrong, try again.');
-					 return false;
-					}
-				}
 			);
-
-
-
 		}
+
 
 	function generateInfo(){
 
@@ -138,62 +169,66 @@
 		actualSize = panelCount * panelSize; //round this up
 		document.getElementById("actSize").innerHTML = actualSize;
 
-		var price = Math.round(Number(actualSize * 5)/10000) * 10000;
-		price = price.toFixed(2);
-		document.getElementById("price").innerHTML = price;
 
-		//drop down to edit
-		pvMakeModel = 'Silfab 300w';
-		document.getElementById("PVMakeModel").innerHTML = pvMakeModel;
+			priceMultiplier = Math.round(actualSize / 1000);
+			var price = priceMultiplier * 5000;
+			price = price.toFixed(2);
+			document.getElementById("price").innerHTML = price;
 
-		inverter = 'Solar Edge';
-		document.getElementById("Inverter").innerHTML = inverter;
+			//drop down to edit
+			pvMakeModel = 'Silfab 300w';
+			document.getElementById("PVMakeModel").innerHTML = pvMakeModel;
 
-		EngElec = 'Ryan Inc';
-		//document.getElementById("LicEngElec").innerHTML = EngElec;
+			inverter = 'Solar Edge';
+			document.getElementById("Inverter").innerHTML = inverter;
 
-		document.getElementById("cur_annual_usg").innerHTML = annUsage;
-		document.getElementById("cur_annual_cost").value = annCost;
+			EngElec = 'Ryan Inc';
+			//document.getElementById("LicEngElec").innerHTML = EngElec;
 
-
-		//For SREC Information
-	    convRate = 1.2;
-        estAnnProd = actualSize * convRate;
-        document.getElementById("estimated_annual_prod").innerHTML = estAnnProd;
-
-        lowRate = 185;
-        numOfyears = 15;
-        SREC15yr = (estAnnProd / 1000) * lowRate * numOfyears;
-        document.getElementById("SREC15yr").innerHTML = SREC15yr;
-
-        SRECannual = SREC15yr / 12; //this should be 15 not 12
-        document.getElementById("SRECannual").innerHTML = SRECannual;
-
-        SRECmon = SRECannual / 15; //this should be 12 not 15
-        document.getElementById("SRECmonthly").innerHTML = SRECmon;
-
-				//For Fed Information
-				var FedTaxCredRate = 0.3;
-   			var FederalTaxCred = price * FedTaxCredRate;
-      	document.getElementById("Federal_Tax_Credit").innerHTML = FederalTaxCred;
-
-        //For Financial Breakdown
-        var interestRate = 0.0599;
-        var interestYears = 15;
-
-        var ratePeriod = parseFloat(interestRate) / 12;
+			document.getElementById("cur_annual_usg").innerHTML = annUsage;
+			document.getElementById("cur_annual_cost").value = annCost;
 
 
-        //var TotalPayments = (price * ratePeriod * Math.pow((1 + ratePeriod), interestYears*12)) / (Math.pow(1 + ratePeriod)-1);
-        var PoweredValue = Math.pow((1 + ratePeriod), interestYears * 12);
-				PoweredValue = PoweredValue.toFixed(2);
-        var TopPiece = price * (ratePeriod * PoweredValue);
-				TopPiece = TopPiece.toFixed(2);
-        var BottomPiece = PoweredValue - 1;
-				BottomPiece = BottomPiece.toFixed(2);
+			//For SREC Information
+		    convRate = 1.2;
+	        estAnnProd = actualSize * convRate;
+	        document.getElementById("estimated_annual_prod").innerHTML = estAnnProd;
 
-        var TotalPaymentMonthly = (TopPiece / BottomPiece) * 0.7225;
-				TotalPaymentMonthly = TotalPaymentMonthly.toFixed(2);
+	        lowRate = 185;
+	        numOfyears = 15;
+	        SREC15yr = (estAnnProd / 1000) * lowRate * numOfyears;
+			SREC15yr = SREC15yr.toFixed(2);
+	        document.getElementById("SREC15yr").innerHTML = SREC15yr;
+
+	        SRECannual = SREC15yr / 12; //this should be 15 not 12
+			SRECannual = SRECannual.toFixed(2);
+	        document.getElementById("SRECannual").innerHTML = SRECannual;
+
+	        SRECmon = SRECannual / 15; //this should be 12 not 15
+			SRECmon = SRECmon.toFixed(2);
+	        document.getElementById("SRECmonthly").innerHTML = SRECmon;
+
+					//For Fed Information
+					var FedTaxCredRate = 0.3;
+	   			var FederalTaxCred = price * FedTaxCredRate;
+	      	document.getElementById("Federal_Tax_Credit").innerHTML = FederalTaxCred;
+
+	        //For Financial Breakdown
+	        var interestRate = 0.0599;
+	        var interestYears = 15;
+
+			var ratePeriod = interestRate / 12;
+
+	        //var TotalPayments = (price * ratePeriod * Math.pow((1 + ratePeriod), interestYears*12)) / (Math.pow(1 + ratePeriod)-1);
+	        var PoweredValue = Math.pow((1 + ratePeriod), interestYears * 12);
+					PoweredValue = PoweredValue.toFixed(2);
+	        var TopPiece = price * (ratePeriod * PoweredValue);
+					TopPiece = TopPiece.toFixed(2);
+	        var BottomPiece = PoweredValue - 1;
+					BottomPiece = BottomPiece.toFixed(2);
+
+	        var TotalPaymentMonthly = (TopPiece / BottomPiece) * 0.7225;
+					TotalPaymentMonthly = TotalPaymentMonthly.toFixed(2);
 
         var TotalPaymentMonthlySREC = TotalPaymentMonthly - SRECmon;
 				TotalPaymentMonthlySREC = TotalPaymentMonthlySREC.toFixed(2);

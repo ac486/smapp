@@ -17,6 +17,12 @@ include "../models/dbModel.php";
     }
 
 
+    if(isset($_REQUEST['ajax_action']) && $_REQUEST['ajax_action']=='new_system'){
+
+  	 echo $objDBModel->newSystem($_REQUEST);
+    }
+
+
     if(isset($_REQUEST['ajax_action']) && $_REQUEST['ajax_action']=='user_logout'){
 
   	 echo $objDBModel->userLogout($_REQUEST);
