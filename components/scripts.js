@@ -475,14 +475,6 @@ $( document ).ready(function() {
 
 
 
-		$("#solar_present").toggle();
-		$("#cust_info_form").toggle();
-		$("#usg_form").toggle();
-    $("#cost_brkdown_form").toggle();
-		$("#sys_info_from").toggle();
-		$("#incentive_form").toggle();
-
-
 		$("#generateInfo_btn").click(function(){
 			 generateInfo();
 		});
@@ -498,29 +490,29 @@ $( document ).ready(function() {
 		});
 
 			$("#sun10").click(function(){
-				
+
 				interestYears = 10;
 				interestRate = 0.0549;
 				priceOffsetMultiplier = 0.700401; //1 cent above
-				
-				
+
+
 		});
 		$("#sun15").click(function(){
-			
+
 				interestYears = 15;
 				interestRate = 0.0599;
 				priceOffsetMultiplier = 0.72255; //perfect
 		});
 
 		$("#mos10").click(function(){
-			
+
 				interestYears = 10;
 				interestRate = 0.0699;
 				priceOffsetMultiplier = 0.75693; //perfect
 		});
 
 		$("#mos15").click(function(){
-			
+
 				interestYears = 15;
 				interestRate = 0.0699;
 				//priceOffsetMultiplier = 0.74475;
@@ -528,7 +520,7 @@ $( document ).ready(function() {
 		});
 
 		$("#gsky12").click(function(){
-			
+
 				interestYears = 12;
 				interestRate = 0.0399;
 				priceOffsetMultiplier = 0.7759; //perfect

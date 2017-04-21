@@ -235,10 +235,6 @@ exit();
                             <select class="form-control m-b" name="provider" id="cust_prov">
                                               <option hidden>Current Utility Provider</option>
                                               <option>PSE&G</option>
-                                              <option>RECO</option>
-                                              <option>Atlantic City Electric</option>
-                                              <option>Jersey Central Power & Light</option>
-                                              
                             </select>
                         </div>
                         <p></p>
@@ -343,17 +339,17 @@ exit();
                                         </td>
 
                                         </tr>
-                                      
-                                     
+
+
                                       </tr>
                                         <tr>
                                         <td>
                                             <button type="button" data-toggle="button" class="btn btn-info m-r-sm btn-outline active" id="gsky12">GreenSky 12 Year</button>
-                                              
+
                                         </td>
 
                                       </tr>
-                                      
+
                                       </tbody>
                                   </table>
 
