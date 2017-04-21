@@ -1,11 +1,11 @@
-<!--<?php-->
-<!--session_start();-->
+<?php
+session_start();
 
-<!--if(!isset($_SESSION["user"])){-->
-  <!--header("Location: http://www.sunmintsolar.com/smapp/error.php"); /* Redirect browser */-->
-<!--exit();-->
-<!--}-->
-<!--?>-->
+if(!isset($_SESSION["user"])){
+  header("Location: http://www.sunmintsolar.com/smapp/error.php"); /* Redirect browser */
+exit();
+}
+?>
 <html>
 
 
