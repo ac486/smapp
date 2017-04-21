@@ -226,13 +226,21 @@
 					var ctx2 = document.getElementById("prodVsUsage").getContext("2d");
 					new Chart(ctx2, {type: 'bar', data: barData, options: barOptions});
 
+
+					//cost of doing nothing
+					$("#monthlyText").text("$" + Math.ceil(monCost));
+       			 	$("#yearlyText").text("$" + Math.ceil(project_25[1].Cost));
+        			$("#decadeText").text("$" + Math.ceil(project_25[10].Cost));
+        			$("#twentFiveText").text("$" + Math.ceil(project_25[25].Cost));
+        			$("#costOfNothing").toggle();
+        			//end cost of nothing
+
 	}
 
 
 
+
 $( document ).ready(function() {
-
-
 	$("#login_form").submit(function(){
 
 				var password = $("#password").val();
@@ -292,6 +300,7 @@ $( document ).ready(function() {
 
 	$("#cust_cur_btn").click(function(){
 		$("#usg_form").toggle();
+		$("#costOfNothing").toggle();
 	});
 
 
@@ -330,6 +339,9 @@ $( document ).ready(function() {
 					$("#monthly_inputs").addClass("hide");
 				}
 		});
+
+
+
 
 
 });
