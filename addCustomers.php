@@ -318,7 +318,44 @@ exit();
 
                         </div>
 
+
                     </form>
+            <body>
+                                  <table class="table">
+                                      <tbody>
+                                      <tr>
+                                         <td>
+                                            <button id="sun10" data-toggle="button" class="btn btn-warning m-r-sm btn-outline active">Sungage 10 Year</button>
+                                          </td>
+                                          <td>
+                                            <button id="sun15" data-toggle="button" class="btn btn-warning m-r-sm btn-outline active">Sungage 15 Year</button>
+                                          </td>
+                                        </tr>
+                                        <tr>
+                                          <td>
+                                            <button type="button" data-toggle="button" class="btn btn-danger m-r-sm btn-outline active" id="mos10">Mosaic 10 Year</button>
+                                          </td>
+                                        <td>
+                                            <button type="button" data-toggle="button" class="btn btn-danger m-r-sm btn-outline active" id="mos15">Mosaic 15 Year</button>
+                                        </td>
+
+                                        </tr>
+                                      
+                                     
+                                      </tr>
+                                        <tr>
+                                        <td>
+                                            <button type="button" data-toggle="button" class="btn btn-info m-r-sm btn-outline active" id="gsky12">GreenSky 12 Year</button>
+                                              
+                                        </td>
+
+                                      </tr>
+                                      
+                                      </tbody>
+                                  </table>
+
+
+            </body>
                     <button id="generateInfo_btn" >Generate Usage and Cost</button>
                 </div>
             </div>

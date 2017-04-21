@@ -1,4 +1,11 @@
 // JavaScript Document
+//Default values are for sungage 15 year
+ //var interestRate = 0.0599;
+ //var interestYears = 15;
+ //var priceOffsetMultiplier = 0.7225;
+ var interestRate;
+ var interestYears;
+ var priceOffsetMultiplier;
 
 	   function userLogin(){
 
@@ -60,22 +67,51 @@
 					cust_cost_annual : document.getElementById("cur_annual_cost").value,
 					cust_prov : document.getElementById("cust_prov").value,
 				},
-						function (data) {
-				 if(data!='' ){
-
-					 alert(data);
-
+				function (data) {
+					if(data != '' ){
+						addCustSys(data);
 					}
 					else{
-					alert('Something went wrong, try again.');
-					 return false;
+						$("#modal_message").text("Oops, something went wrong! Please try again or contact support.");
+						$("#modal_nav").attr("href","home.html");
+						$("#confirm_modal").modal("toggle");
+						return false;
 					}
 				}
 			);
-
-
-
 		}
+
+	function addCustSys(custId) {
+		jQuery.post(baseUrl()+"/ajaxhandler/ajaxhandler.php", {
+					ajax_action: 'new_system',
+					cust_id : custId,
+					sys_size : document.getElementById("actSize").value,
+					sys_prod : document.getElementById("estimated_annual_prod").value,
+					sys_panels : document.getElementById("panCount").value,
+					sys_panel_type : document.getElementById("PVMakeModel").value,
+					sys_cost : document.getElementById("price").value,
+					srec_month : document.getElementById("SRECmonthly").value,
+					srec_annu : document.getElementById("SRECannual").value,
+					srec_15year : document.getElementById("SREC15yr").value,
+					fed_credit : document.getElementById("Federal_Tax_Credit").value,
+					monthly_payment : document.getElementById("Total_Monthly_Payment").value,
+				},
+				function (data) {
+					if(data != '' ){
+						addCustSys(data);
+						$("#modal_message").text("Congratulations, you are one step closer to Energy Freedom!");
+						$("#modal_nav").attr("href","home.html");
+						$("#confirm_modal").modal("toggle");
+					}
+					else{
+						$("#modal_message").text("Oops, something went wrong! Please try again or contact support.");
+						$("#modal_nav").attr("href","home.html");
+						$("#confirm_modal").modal("toggle");
+						return false;
+					}
+				}
+		);
+	}
 
 	function generateInfo(){
 
@@ -137,8 +173,10 @@
 
 		actualSize = panelCount * panelSize; //round this up
 		document.getElementById("actSize").innerHTML = actualSize;
+		
 
-		var price = Math.round(Number(actualSize * 5)/10000) * 10000;
+		priceMultiplier = Math.round(actualSize / 1000);
+		var price = priceMultiplier * 5000;
 		price = price.toFixed(2);
 		document.getElementById("price").innerHTML = price;
 
@@ -178,11 +216,9 @@
       	document.getElementById("Federal_Tax_Credit").innerHTML = FederalTaxCred;
 
         //For Financial Breakdown
-        var interestRate = 0.0599;
-        var interestYears = 15;
+       
 
-        var ratePeriod = parseFloat(interestRate) / 12;
-
+		var ratePeriod = interestRate / 12;
 
         //var TotalPayments = (price * ratePeriod * Math.pow((1 + ratePeriod), interestYears*12)) / (Math.pow(1 + ratePeriod)-1);
         var PoweredValue = Math.pow((1 + ratePeriod), interestYears * 12);
@@ -192,13 +228,13 @@
         var BottomPiece = PoweredValue - 1;
 				BottomPiece = BottomPiece.toFixed(2);
 
-        var TotalPaymentMonthly = (TopPiece / BottomPiece) * 0.7225;
+        var TotalPaymentMonthly = (TopPiece / BottomPiece) * priceOffsetMultiplier;
 				TotalPaymentMonthly = TotalPaymentMonthly.toFixed(2);
 
         var TotalPaymentMonthlySREC = TotalPaymentMonthly - SRECmon;
 				TotalPaymentMonthlySREC = TotalPaymentMonthlySREC.toFixed(2);
 
-    		document.getElementById("Monthly_Payment_NoSREC").innerHTML = TotalPaymentMonthly;
+    	document.getElementById("Monthly_Payment_NoSREC").innerHTML = TotalPaymentMonthly;
         document.getElementById("Total_Monthly_Payment").innerHTML = TotalPaymentMonthlySREC;
 
 
@@ -297,7 +333,7 @@
 		var period = []; var solar = [];
 		var nosolar = [];
 
-	solar.push(TotalPaymentMonthlySREC);
+		solar.push(TotalPaymentMonthlySREC);
 		period.push(today.getFullYear());
 		nosolar.push(annualCost/12);
 
@@ -452,6 +488,46 @@ $( document ).ready(function() {
 				else{
 					$("#monthly_inputs").addClass("hide");
 				}
+		});
+
+
+
+
+		$("#sun10").click(function(){
+				
+				interestYears = 10;
+				interestRate = 0.0549;
+				priceOffsetMultiplier = 0.700401; //1 cent above
+				
+				
+		});
+		$("#sun15").click(function(){
+			
+				interestYears = 15;
+				interestRate = 0.0599;
+				priceOffsetMultiplier = 0.72255; //perfect
+		});
+
+		$("#mos10").click(function(){
+			
+				interestYears = 10;
+				interestRate = 0.0699;
+				priceOffsetMultiplier = 0.75693; //perfect
+		});
+
+		$("#mos15").click(function(){
+			
+				interestYears = 15;
+				interestRate = 0.0699;
+				//priceOffsetMultiplier = 0.74475;
+				priceOffsetMultiplier = 0.74195; //perfect
+		});
+
+		$("#gsky12").click(function(){
+			
+				interestYears = 12;
+				interestRate = 0.0399;
+				priceOffsetMultiplier = 0.7759; //perfect
 		});
 
 
