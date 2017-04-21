@@ -345,7 +345,13 @@
 		    var ctx = document.getElementById("solarVsnoSolar").getContext("2d");
 		    new Chart(ctx, {type: 'line', data: lineData, options:lineOptions});
 
-
+        //cost of doing nothing
+        $("#monthlyText").text("$" + Math.ceil(monCost));
+        $("#yearlyText").text("$" + Math.ceil(project_25[1].Cost));
+        $("#decadeText").text("$" + Math.ceil(project_25[10].Cost));
+        $("#twentFiveText").text("$" + Math.ceil(project_25[25].Cost));
+        $("#costOfNothing").toggle();
+        //end cost of nothing
 
 
 
