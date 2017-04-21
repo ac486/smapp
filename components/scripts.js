@@ -353,6 +353,20 @@
         $("#costOfNothing").toggle();
         //end cost of nothing
 
+        /**
+		 * Trees, Acres, Emissions
+         */
+        var ACRES_FACTOR_PER_KWH = .0007;
+        $("#acresSaved").text(annUsage*ACRES_FACTOR_PER_KWH);
+
+        var TREES_FACTOR_PER_KWH = .00375;
+		$("#treesSaved").text(annUsage*TREES_FACTOR_PER_KWH);
+
+		var EMISSIONS_FACTOR_PER_KWH = .000703;
+		$("#co2").text(annUsage*EMISSIONS_FACTOR_PER_KWH);
+        /**
+		 * End Trees, Acres, Emissions
+         */
 
 
 	}
