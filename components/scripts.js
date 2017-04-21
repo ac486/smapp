@@ -215,10 +215,6 @@
 	   			var FederalTaxCred = price * FedTaxCredRate;
 	      	document.getElementById("Federal_Tax_Credit").innerHTML = FederalTaxCred;
 
-	        //For Financial Breakdown
-	        var interestRate = 0.0599;
-	        var interestYears = 15;
-
 			var ratePeriod = interestRate / 12;
 
 	        //var TotalPayments = (price * ratePeriod * Math.pow((1 + ratePeriod), interestYears*12)) / (Math.pow(1 + ratePeriod)-1);
