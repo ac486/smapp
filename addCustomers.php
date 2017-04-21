@@ -595,6 +595,25 @@ exit();
                         Federal  Tax Credit
                       </td>
                     </tr>
+
+                    <tr>
+                        <td>
+                            <button type="button" class="btn btn-info m-r-sm" id="acresSaved"></button>
+                            Acres of U.S Forests in One Year
+                        </td>
+
+                        <td>
+                            <button type="button" class="btn btn-primary m-r-sm" id="treesSaved"></button>
+                            Trees saved Per Year
+                        </td>
+
+                        <td>
+                            <button type="button" class="btn btn-default m-r-sm" id="co2"></button>
+                            CO2 Emissions in Tons
+                        </td>
+
+                    </tr>
+
                     </tbody>
               </table>
             </div>
