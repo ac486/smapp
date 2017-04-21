@@ -1,4 +1,11 @@
-<!DOCTYPE html>
+<?php
+session_start();
+
+if(!isset($_SESSION["user"])){
+  header("Location: http://www.sunmintsolar.com/smapp/error.php"); /* Redirect browser */
+exit();
+}
+?>
 <html>
 
 <head>
@@ -6,7 +13,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Sunmint | Database</title>
+    <title>Sunmint | Customers </title>
 
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="font-awesome/css/font-awesome.css" rel="stylesheet">
@@ -14,7 +21,9 @@
     <link href="css/animate.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
     <link rel="icon" href="photos/sunmintfavicon.png" type="image/x-icon">
-
+    <?php
+    include "config/config.php";
+?>
 </head>
 
 <body>
@@ -30,19 +39,17 @@
                         <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                     <span class="clear"> <span class="block m-t-xs"> <strong class="font-bold"> <?php echo $_SESSION['user']['user_name'] ?> </strong>
                     </span> </span> </a>
-                        <ul class="dropdown-menu animated fadeInRight m-t-xs">
-                            <li><a href="login.html">Profile</a></li>
-                        </ul>
+
                     </div>
                     <div class="logo-element">
                         SM
                     </div>
                 </li>
-                <li class="active">
+                <li >
                     <a href="index.html"><i class="fa fa-th-large"></i> <span class="nav-label">Home</span></a>
                 </li>
 
-                <li>
+                <li class="active">
                     <a href="viewCustomers.php"><i class="fa fa-table"></i> <span class="nav-label">View Customers</span></a>
                 </li>
                 <li>
@@ -59,77 +66,53 @@
             <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
                 <div class="navbar-header">
                     <a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i> </a>
-                    <form role="search" class="navbar-form-custom" action="search_results.html">
+                    <div role="search" class="navbar-form-custom" >
                         <div class="form-group">
-                            <input type="text" placeholder="Search for something..." class="form-control" name="top-search" id="top-search">
+                            <input type="text" placeholder="Search for something..." class="form-control" name="top-search" id="searchBar">
                         </div>
-                    </form>
+                    </div>
                 </div>
                 <ul class="nav navbar-top-links navbar-right">
 
                     <li>
-                        <a href="login.html">
-                            <i class="fa fa-sign-out"></i> Log out
-                        </a>
+                      <a href="index.html" id="logout_btn">
+                          <i class="fa fa-sign-out"></i> Logout
+                      </a>
                     </li>
                 </ul>
 
             </nav>
         </div>
-        <div class="row wrapper border-bottom white-bg page-heading">
-            <div class="col-lg-10">
-                <h2>View Accounts</h2>
-                <ol class="breadcrumb">
-                    <li>
-                        <a href="index.html">Home</a>
-                    </li>
-                    <li class="active">
-                        <strong>Accounts</strong>
-                    </li>
-                </ol>
-            </div>
-            <div class="col-lg-2">
 
-            </div>
-        </div>
         <div class="wrapper wrapper-content animated fadeInRight">
            <div class="row">
-                <div class="col-lg-8">
+                <div class="col-lg">
                     <div class="ibox float-e-margins">
                         <div class="ibox-title">
-                            <h5>Customer List </h5>
-                            <div class="ibox-tools">
-                                <a class="collapse-link">
-                                    <i class="fa fa-chevron-up"></i>
-                                </a>
-                                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                                    <i class="fa fa-wrench"></i>
-                                </a>
-                                <ul class="dropdown-menu dropdown-user">
-                                    <li><a href="#">Config option 1</a>
-                                    </li>
-                                    <li><a href="#">Config option 2</a>
-                                    </li>
-                                </ul>
-                                <a class="close-link">
-                                    <i class="fa fa-times"></i>
-                                </a>
-                            </div>
+                            <h5>My Customers </h5>
+
                         </div>
                         <div class="ibox-content">
 
                             <table class="table table-bordered table-hover">
                                 <thead>
                                 <tr>
-                                    <th>#</th>
-                                    <th>First Name</th>
-                                    <th>Last Name</th>
-                                    <th>Phone</th>
+                                    <th>Name</th>
                                     <th>Address</th>
+                                    <th>City</th>
+                                    <th>State</th>
+                                    <th>Phone</th>
+                                    <th>E-Mail</th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <tr id="row1">
+
+                                <?php
+
+
+
+                                ?>
+                                <tr>
                                     <td>1</td>
                                     <td>Mark</td>
                                     <td>Otto</td>

@@ -49,9 +49,6 @@ exit();
                     <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                     <span class="clear"> <span class="block m-t-xs"> <strong class="font-bold"> <?php echo $_SESSION['user']['user_name'] ?> </strong>
                     </span> </span> </a>
-                    <ul class="dropdown-menu animated fadeInRight m-t-xs">
-                        <li><a href="login.html">Profile</a></li>
-                    </ul>
                 </div>
                 <div class="logo-element">
                     SM
@@ -65,7 +62,7 @@ exit();
                 <a href="viewCustomers.php"><i class="fa fa-table"></i> <span class="nav-label">View Customers</span></a>
               </li>
               <li class="active">
-                <a href="addCustomers.php"><i class="fa fa-table"></i> <span class="nav-label">Add Customers</span></a>
+                <a href="addCustomers.php"><i class="fa fa-id-card"></i> <span class="nav-label">Add Customers</span></a>
               </li>
 
         </ul>
@@ -84,7 +81,7 @@ exit();
     </div>
         <ul class="nav navbar-top-links navbar-right">
             <li>
-                <a href="home.php" id="logout_btn">
+                <a href="index.html" id="logout_btn">
                     <i class="fa fa-sign-out"></i> Logout
                 </a>
             </li>
