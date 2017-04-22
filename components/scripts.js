@@ -388,13 +388,13 @@
          * Trees, Acres, Emissions
          */
         var ACRES_FACTOR_PER_KWH = .0007;
-        $("#acresSaved").text(annUsage*ACRES_FACTOR_PER_KWH);
+        $("#acresSaved").text(Math.ceil(annUsage*ACRES_FACTOR_PER_KWH));
 
         var TREES_FACTOR_PER_KWH = .00375;
-        $("#treesSaved").text(annUsage*TREES_FACTOR_PER_KWH);
+        $("#treesSaved").text(Math.ceil(annUsage*TREES_FACTOR_PER_KWH));
 
         var EMISSIONS_FACTOR_PER_KWH = .000703;
-        $("#co2").text(annUsage*EMISSIONS_FACTOR_PER_KWH);
+        $("#co2").text(Math.ceil(annUsage*EMISSIONS_FACTOR_PER_KWH));
         /**
          * End Trees, Acres, Emissions
          */
