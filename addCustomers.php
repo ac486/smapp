@@ -571,7 +571,7 @@ exit();
                                               Monthly Payments before Incentives
                                           </td>
                                           <td>
-                                              <button type="button" class="btn btn-primary m-r-sm" id="SRECmonthly"></button>
+                                              <button type="button" class="btn btn-primary m-r-sm" id="SRECmonthly1"></button>
                                               SREC Monthly
                                           </td>
                                           <td>

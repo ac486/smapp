@@ -207,6 +207,7 @@
 
 	        SRECmon = SRECannual / 15; //this should be 12 not 15
 			SRECmon = SRECmon.toFixed(2);
+      document.getElementById("SRECmonthly1").innerHTML = SRECmon;
 	        document.getElementById("SRECmonthly").innerHTML = SRECmon;
 
 					//For Fed Information
