@@ -30,19 +30,14 @@ class dbModel
 	// user logout
 	 public function userLogout(){
     global  $con;
-     $id = $_SESSION['user']['user_id'];
 
-    $queryStr=" UPDATE tbl_user SET `status` = '$logout' WHERE `tbl_user`.`id` = '$id' ";
-    $queryExi = mysqli_query($con,$queryStr);
-
-		$_SESSION['user']['user_name']= '';
+	$_SESSION['user']['user_name']= '';
     $_SESSION['user']['role']= '';
     $_SESSION['user']['user_id']= '';
 
     session_start();
     session_unset();
     session_destroy();
-		$this->redirection(admin_url);
 		return true;
 	}
 
@@ -109,6 +104,22 @@ class dbModel
 
   }
 
+	public function getCustomers(){
+		global  $con;
+		$rep = $_SESSION['user']['user_id'];
+		$queryStr=" SELECT * FROM tbl_customer inner join tbl_system on tbl_system.id = tbl_customer.id WHERE rep='$rep' ";
+  		$queryExi = mysqli_query($con,$queryStr);
+
+		$rows;
+		if(mysqli_num_rows($queryExi) > 0) {
+	    for( $rows = array(); $row = mysqli_fetch_assoc($queryExi); $rows[] = $row);
+			return json_encode($rows);
+		}
+		else {
+			return false;
+		}
+	}
+
 
 
   // user login
@@ -133,6 +144,9 @@ class dbModel
 		}
 		return $data;
 	}
+
+
+
 
 
 

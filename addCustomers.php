@@ -55,7 +55,7 @@ exit();
                 </div>
             </li>
             <li>
-                <a href="index.html"><i class="fa fa-th-large"></i> <span class="nav-label">Home</span></a>
+                <a href="home.php"><i class="fa fa-th-large"></i> <span class="nav-label">Home</span></a>
             </li>
 
               <li>
@@ -81,8 +81,8 @@ exit();
     </div>
         <ul class="nav navbar-top-links navbar-right">
             <li>
-                <a href="index.html" id="logout_btn">
-                    <i class="fa fa-sign-out"></i> Logout
+                <a id="logout_btn">
+                    <i class="fa fa-sign-out" href="index.php"></i> Logout
                 </a>
             </li>
         </ul>
@@ -568,9 +568,12 @@ exit();
                                           <td>
                                             <div class="btn btn-danger m-r-sm" id="Monthly_Payment_NoSREC">
                                               </div>
-                                              Sun15yr
+                                              Monthly Payments before Incentives
                                           </td>
-
+                                          <td>
+                                              <button type="button" class="btn btn-primary m-r-sm" id="SRECmonthly"></button>
+                                              SREC Monthly
+                                          </td>
                                           <td>
                                             <div class="btn btn-danger m-r-sm" id="Total_Monthly_Payment">
                                               </div>

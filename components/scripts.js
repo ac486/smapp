@@ -13,7 +13,7 @@
 			   if(data!=''){
 
 			     if(data == 1){
-					 redirect('/addCustomers.php');
+					 redirect('/home.php');
 					 return true;
 
 				  }else{
@@ -30,7 +30,6 @@
 		// redirect
 
 		function redirect(param){
-		   var param;
 		   if(param !=''){
 			  window.location=baseUrl()+param;
 			  return true;
@@ -225,7 +224,7 @@
 	        var BottomPiece = PoweredValue - 1;
 					BottomPiece = BottomPiece.toFixed(2);
 
-	        var TotalPaymentMonthly = (TopPiece / BottomPiece) * 0.7225;
+	        var TotalPaymentMonthly = (TopPiece / BottomPiece) * priceOffsetMultiplier;
 					TotalPaymentMonthly = TotalPaymentMonthly.toFixed(2);
 
         var TotalPaymentMonthlySREC = TotalPaymentMonthly - SRECmon;
@@ -446,7 +445,7 @@ $( document ).ready(function() {
 			},
 					function (data) {
 
-				 redirect();
+				 redirect('/index.php');
 		});
 
 	});

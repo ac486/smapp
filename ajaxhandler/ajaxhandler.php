@@ -27,4 +27,9 @@ include "../models/dbModel.php";
 
   	 echo $objDBModel->userLogout($_REQUEST);
     }
+
+	    if(isset($_REQUEST['ajax_action']) && $_REQUEST['ajax_action']=='view_customers'){
+
+  	 echo $objDBModel->getCustomers($_REQUEST);
+    }
 ?>

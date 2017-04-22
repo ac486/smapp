@@ -14,6 +14,7 @@
 
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="font-awesome/css/font-awesome.css" rel="stylesheet">
+    <link rel="icon" href="photos/sunmintfavicon.png" type="image/x-icon">
 
     <link href="css/animate.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
@@ -44,8 +45,6 @@
                     <input type="password" id="password" class="form-control" placeholder="Password" required="">
                 </div>
                 <button type="submit" class="btn btn-primary block full-width m-b">Login</button>
-
-                <a href="forgot_password.html"><small>Forgot password?</small></a>
             </form>
             <p class="m-t"> <small></small> </p>
         </div>
